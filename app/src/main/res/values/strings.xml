@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidChart404</string>
+    <string name="tv_chart_text">Line Chart</string>
 </resources>
