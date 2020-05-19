@@ -1,5 +1,7 @@
 package it.qzeroq.androidchart.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,19 +14,23 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import it.qzeroq.androidchart.R;
+import it.qzeroq.androidchart.activities.LineChartActivity;
 
-public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> {
+public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> implements View.OnClickListener {
 
+    private Context context;
     private List<String> chartNameList;
 
-    public ChartAdapter(List<String> chartNameList){
+    public ChartAdapter(Context context, List<String> chartNameList){
         this.chartNameList = chartNameList;
+        this.context = context;
     }
 
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ConstraintLayout constraintLayout = (ConstraintLayout) LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_chart_selection, parent, false);
+        constraintLayout.setOnClickListener(this);
         return new Holder(constraintLayout);
     }
 
@@ -36,6 +42,18 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> {
     @Override
     public int getItemCount() {
         return chartNameList.size();
+    }
+
+    @Override
+    public void onClick(View v) {
+        int position = ((RecyclerView) v.getParent()).getChildAdapterPosition(v);
+        Intent intent = null;
+        switch(position){
+            case 0:
+                intent = new Intent(context, LineChartActivity.class);
+                break;
+        }
+        context.startActivity(intent);
     }
 
     class Holder extends RecyclerView.ViewHolder {

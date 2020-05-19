@@ -19,9 +19,9 @@
 
             <ImageView
                 android:id="@+id/ivChart"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@android:drawable/btn_dialog" />
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/chart_icon" />
 
             <TextView
                 android:id="@+id/tvChart"

@@ -28,11 +28,11 @@ public class SelectionActivity extends AppCompatActivity {
         holder.rvSelectionChart.setLayoutManager(layoutManager);
 
         List<String> chartNameList = new ArrayList();
-        chartNameList.add("prova1");
+        chartNameList.add("Line chart");
         chartNameList.add("prova2");
         chartNameList.add("prova3");
 
-        ChartAdapter adapter = new ChartAdapter(chartNameList);
+        ChartAdapter adapter = new ChartAdapter(this, chartNameList);
         holder.rvSelectionChart.setAdapter(adapter);
     }
 
