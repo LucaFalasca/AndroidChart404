@@ -15,20 +15,18 @@ import it.qzeroq.androidchart.adapter.ChartAdapter;
 
 public class SelectionActivity extends AppCompatActivity {
 
-    private Holder holder;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
 
-        holder = new Holder(this);
+        Holder holder = new Holder(this);
 
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 3);
         holder.rvSelectionChart.setLayoutManager(layoutManager);
 
         List<String> chartNameList = new ArrayList();
-        chartNameList.add("Line chart");
+        chartNameList.add(getResources().getString(R.string.tv_chart_text));
         chartNameList.add("prova2");
         chartNameList.add("prova3");
 
@@ -40,7 +38,7 @@ public class SelectionActivity extends AppCompatActivity {
 
         private RecyclerView rvSelectionChart;
 
-        public Holder(Context context){
+        Holder(Context context){
             rvSelectionChart = findViewById(R.id.rvSelectionChart);
 
         }

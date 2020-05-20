@@ -52,11 +52,13 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> impl
             case 0:
                 intent = new Intent(context, LineChartActivity.class);
                 break;
+            case 1:
+                break;
         }
         context.startActivity(intent);
     }
 
-    class Holder extends RecyclerView.ViewHolder {
+    static class Holder extends RecyclerView.ViewHolder {
 
         private TextView tvChart;
 

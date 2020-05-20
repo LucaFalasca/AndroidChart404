@@ -11,20 +11,18 @@ import it.qzeroq.androidchart.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Holder holder;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        holder = new Holder();
+        Holder holder = new Holder();
     }
 
     class Holder implements View.OnClickListener{
 
         private Button btnCreateChart;
 
-        public Holder(){
+        Holder(){
             btnCreateChart = findViewById(R.id.btnCreateChart);
             btnCreateChart.setOnClickListener(this);
         }

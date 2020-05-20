@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroidChart404</string>
+    <string name="tv_chart_text">Grafico lineare</string>
+    <string name="create_chart_btn_text">Crea un nuovo grafico</string>
+</resources>

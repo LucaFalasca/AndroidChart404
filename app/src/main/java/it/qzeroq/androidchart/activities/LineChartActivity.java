@@ -12,7 +12,6 @@ import com.github.mikephil.charting.data.LineDataSet;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import it.qzeroq.androidchart.R;
 import it.qzeroq.androidchart.data.LineChartData;
@@ -49,7 +48,7 @@ public class LineChartActivity extends AppCompatActivity {
         private LineChart lineChart;
         private List<LineChartData> dataList;
 
-        public Holder(){
+        Holder(){
             lineChart = findViewById(R.id.lineChart);
             lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
             dataList = new ArrayList<>();
@@ -58,11 +57,11 @@ public class LineChartActivity extends AppCompatActivity {
             }
         }
 
-        public LineChart getLineChart() {
+        LineChart getLineChart() {
             return lineChart;
         }
 
-        public List<LineChartData> getDataList() {
+        List<LineChartData> getDataList() {
             return dataList;
         }
     }
