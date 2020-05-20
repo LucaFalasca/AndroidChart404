@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
@@ -41,6 +42,8 @@ public class LineChartActivity extends AppCompatActivity {
 
         holder.getLineChart().setData(lineData);
         holder.getLineChart().invalidate();
+
+        holder.lineChart.animateX(3000, Easing.Linear);
     }
 
     class Holder{

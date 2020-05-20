@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import it.qzeroq.androidchart.R;
+import it.qzeroq.androidchart.activities.InsertDataActivity;
 import it.qzeroq.androidchart.activities.LineChartActivity;
 
 public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> implements View.OnClickListener {
@@ -50,7 +51,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> impl
         Intent intent = null;
         switch(position){
             case 0:
-                intent = new Intent(context, LineChartActivity.class);
+                intent = new Intent(context, InsertDataActivity.class);
                 break;
             case 1:
                 break;
