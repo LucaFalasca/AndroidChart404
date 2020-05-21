@@ -22,7 +22,12 @@ public class InsertDataActivity extends AppCompatActivity {
 
         Holder holder = new Holder();
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this){
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
         holder.rvInsertLine.setLayoutManager(layoutManager);
 
         adapter = new InsertDataAdapter(this);
