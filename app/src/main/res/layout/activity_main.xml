@@ -10,6 +10,7 @@
         android:id="@+id/btnCreateChart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/happy_monkey"
         android:text="@string/create_chart_btn_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

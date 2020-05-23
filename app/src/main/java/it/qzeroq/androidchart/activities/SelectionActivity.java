@@ -20,26 +20,30 @@ public class SelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
 
-        Holder holder = new Holder(this);
+        ArrayList<String> chartNameList = new ArrayList<>();
+        chartNameList.add(getResources().getString(R.string.tv_LineChart_text));
+        chartNameList.add(getResources().getString(R.string.tv_BarChart_text));
+        chartNameList.add(getResources().getString(R.string.tv_PieChart_text));
+        chartNameList.add(getResources().getString(R.string.tv_ScatterChart_text));
+        chartNameList.add(getResources().getString(R.string.tv_CandleStickChart_text));
+        chartNameList.add(getResources().getString(R.string.tv_BubbleChart_text));
 
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this, 3);
-        holder.rvSelectionChart.setLayoutManager(layoutManager);
+        Holder holder = new Holder(chartNameList);
 
-        List<String> chartNameList = new ArrayList();
-        chartNameList.add(getResources().getString(R.string.tv_chart_text));
-        chartNameList.add("prova2");
-        chartNameList.add("prova3");
-
-        ChartAdapter adapter = new ChartAdapter(this, chartNameList);
-        holder.rvSelectionChart.setAdapter(adapter);
     }
 
     class Holder{
 
         private RecyclerView rvSelectionChart;
 
-        Holder(Context context){
+        Holder(List<String> chartNameList){
             rvSelectionChart = findViewById(R.id.rvSelectionChart);
+
+            RecyclerView.LayoutManager layoutManager = new GridLayoutManager(SelectionActivity.this, 2);
+            rvSelectionChart.setLayoutManager(layoutManager);
+
+            ChartAdapter adapter = new ChartAdapter(SelectionActivity.this, chartNameList);
+            rvSelectionChart.setAdapter(adapter);
 
         }
 

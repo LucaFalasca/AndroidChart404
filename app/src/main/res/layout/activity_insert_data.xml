@@ -52,6 +52,7 @@
                 android:layout_marginTop="@dimen/margin_standard"
                 android:layout_marginEnd="@dimen/margin_standard"
                 android:layout_marginBottom="@dimen/margin_standard"
+                android:fontFamily="@font/happy_monkey"
                 android:text="Generate"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

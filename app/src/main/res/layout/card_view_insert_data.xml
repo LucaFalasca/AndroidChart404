@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -25,19 +26,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginTop="@dimen/margin_standard"
+                android:fontFamily="@font/happy_monkey"
                 android:text="@string/tv_name_line_string"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/etNameLine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="209dp"
+                android:layout_height="52dp"
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginTop="@dimen/margin_standard"
                 android:layout_marginEnd="@dimen/margin_standard"
                 android:autofillHints="@string/et_name_line_text"
                 android:ems="10"
+                android:fontFamily="@font/happy_monkey"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -50,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginTop="@dimen/margin_standard"
+                android:fontFamily="@font/happy_monkey"
                 android:text="@string/tv_x_axis_string"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etNameLine" />
@@ -62,6 +66,7 @@
                 android:layout_marginTop="@dimen/margin_standard"
                 android:layout_marginEnd="@dimen/margin_standard"
                 android:ems="10"
+                android:fontFamily="@font/happy_monkey"
                 android:gravity="start|top"
                 android:importantForAutofill="no"
                 android:inputType="textMultiLine"
@@ -76,6 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginTop="@dimen/margin_standard"
+                android:fontFamily="@font/happy_monkey"
                 android:text="@string/tv_y_axis_string"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etXAxis" />
@@ -89,6 +95,7 @@
                 android:layout_marginEnd="@dimen/margin_standard"
                 android:layout_marginBottom="@dimen/margin_standard"
                 android:ems="10"
+                android:fontFamily="@font/happy_monkey"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
                 app:layout_constraintBottom_toBottomOf="parent"

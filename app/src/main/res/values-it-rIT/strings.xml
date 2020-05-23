@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AndroidChart404</string>
-    <string name="tv_chart_text">Grafico lineare</string>
+    <string name="tv_LineChart_text">Grafico lineare</string>
+    <string name="tv_BarChart_text">Grafico a barre</string>
+    <string name="tv_PieChart_text">Grafico a torta</string>
+    <string name="tv_ScatterChart_text">Grafico a dispersione</string>
+    <string name="tv_CandleStickChart_text">Grafico a candela</string>
+    <string name="tv_BubbleChart_text">Grafico a bolle</string>
+    <string name="tv_RadarChart_text">Grafico radar</string>
     <string name="create_chart_btn_text">Crea un nuovo grafico</string>
 </resources>

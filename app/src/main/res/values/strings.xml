@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">AndroidChart404</string>
-    <string name="tv_chart_text">Line Chart</string>
+
+    <string name="tv_LineChart_text">Line Chart</string>
+    <string name="tv_BarChart_text">Bar Chart</string>
+    <string name="tv_PieChart_text">Pie Chart</string>
+    <string name="tv_ScatterChart_text">Scatter Chart</string>
+    <string name="tv_CandleStickChart_text">Candle Stick Chart</string>
+    <string name="tv_BubbleChart_text">Bubble Chart</string>
+    <string name="tv_RadarChart_text">Radar Chart</string>
+
     <string name="create_chart_btn_text">Create new chart</string>
     <string name="tv_name_line_string">Name</string>
     <string name="et_name_line_text">Name</string>
