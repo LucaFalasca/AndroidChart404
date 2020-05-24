@@ -32,7 +32,7 @@ public class SelectionActivity extends AppCompatActivity {
 
     }
 
-    class Holder{
+    class Holder {
 
         private RecyclerView rvSelectionChart;
 

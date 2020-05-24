@@ -21,12 +21,13 @@ public class LineChartActivity extends AppCompatActivity {
 
     Holder holder;
 
+    // ------- INSERIRE GESTIONE ERRORI DI INSERIMENTO DATI DA PARTE DELL'UTENTE --------
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_line_chart);
         holder = new Holder();
-
 
 
         //Creazione lista di Entry
@@ -46,10 +47,12 @@ public class LineChartActivity extends AppCompatActivity {
         holder.lineChart.animateX(3000, Easing.Linear);
     }
 
+
     class Holder{
 
         private LineChart lineChart;
         private List<LineChartData> dataList;
+
 
         Holder(){
             lineChart = findViewById(R.id.lineChart);
@@ -60,9 +63,11 @@ public class LineChartActivity extends AppCompatActivity {
             }
         }
 
+
         LineChart getLineChart() {
             return lineChart;
         }
+
 
         List<LineChartData> getDataList() {
             return dataList;
