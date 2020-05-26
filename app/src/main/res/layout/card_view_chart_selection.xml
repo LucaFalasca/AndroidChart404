@@ -34,7 +34,8 @@
                 android:layout_height="163dp"
                 android:background="#FFFFFF"
                 android:backgroundTint="#FFFFFF"
-                android:foreground="@drawable/chart_icon" />
+                android:foreground="@drawable/chart_icon"
+                android:foregroundTint="#3A3A3A" />
 
             <TextView
                 android:id="@+id/tvChart"

@@ -63,14 +63,18 @@ public class InsertDataActivity extends AppCompatActivity {
             if (v.getId() == R.id.btnAddCard)
                 adapter.addCard();
             else if (v.getId() == R.id.btnGenerate) {
-                makeDataSet();
-                //Intent i = new Intent(InsertDataActivity.this, LineChartActivity.class);
-                //startActivity(i);
+                //makeDataSet();
+                Intent intent = new Intent(InsertDataActivity.this, LineChartActivity.class);
+                intent.putExtra("names", adapter.getNames());
+                intent.putExtra("xAxises", adapter.getXAxis());
+                intent.putExtra("yAxises", adapter.getYAxis());
+                intent.putExtra("n", adapter.getItemCount());
+                startActivity(intent);
             }
         }
     }
 
-
+/*
     private void makeDataSet() {
         int items = adapter.getItemCount();
         List<Entry> entries = new ArrayList<>();
@@ -79,5 +83,5 @@ public class InsertDataActivity extends AppCompatActivity {
 
             //entries.add(new Entry( Integer.parseInt(adapter.) ) );
         }
-    }
+    }*/
 }

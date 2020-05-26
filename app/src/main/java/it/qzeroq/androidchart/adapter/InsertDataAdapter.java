@@ -11,16 +11,21 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import it.qzeroq.androidchart.R;
 
 public class InsertDataAdapter extends RecyclerView.Adapter<InsertDataAdapter.Holder> implements View.OnClickListener {
 
     private Context context;
     private int c;
+    private List<Holder> holders;
 
     public InsertDataAdapter(Context context){
         this.context = context;
         c = 1;
+        holders = new ArrayList<>();
     }
 
 
@@ -37,7 +42,7 @@ public class InsertDataAdapter extends RecyclerView.Adapter<InsertDataAdapter.Ho
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-        
+        holders.add(holder);
     }
 
 
@@ -58,6 +63,29 @@ public class InsertDataAdapter extends RecyclerView.Adapter<InsertDataAdapter.Ho
         int position = ((RecyclerView) v.getParent()).getChildAdapterPosition(v);
     }
 
+    public String[] getNames(){
+        String[] values = new String[c];
+        for(int i = 0; i < c; i++){
+            values[i] = holders.get(i).etNameLine.getText().toString();
+        }
+        return values;
+    }
+
+    public String[] getXAxis(){
+        String[] values = new String[c];
+        for(int i = 0; i < c; i++){
+            values[i] = holders.get(i).etXAxis.getText().toString();
+        }
+        return values;
+    }
+
+    public String[] getYAxis(){
+        String[] values = new String[c];
+        for(int i = 0; i < c; i++){
+            values[i] = holders.get(i).etYAxis.getText().toString();
+        }
+        return values;
+    }
 
     static class Holder extends RecyclerView.ViewHolder {
 
