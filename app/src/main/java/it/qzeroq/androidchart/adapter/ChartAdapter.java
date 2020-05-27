@@ -46,30 +46,18 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> impl
 
         String name = chartNameList.get(position);
         holder.tvChart.setText(name);
-        switch (name) {
-            case "Line Chart" :
-                holder.ivChart.setImageResource(R.drawable.linear_chart);
-                break;
-
-            case "Bar Chart" :
-                holder.ivChart.setImageResource(R.drawable.bar_chart);
-                break;
-
-            case "Pie Chart" :
-                holder.ivChart.setImageResource(R.drawable.pie_chart);
-                break;
-
-            case "Bubble Chart":
-                holder.ivChart.setImageResource(R.drawable.bubble_chart);
-                break;
-
-            case "Scatter Chart" :
-                holder.ivChart.setImageResource(R.drawable.scatter_chart);
-                break;
-
-            case "Candle Stick Chart" :
-                holder.ivChart.setImageResource(R.drawable.candle_stick_chart);
-                break;
+        if (context.getResources().getString(R.string.tv_LineChart_text).equals(name)) {
+            holder.ivChart.setImageResource(R.drawable.linear_chart);
+        } else if (context.getResources().getString(R.string.tv_BarChart_text).equals(name)) {
+            holder.ivChart.setImageResource(R.drawable.bar_chart);
+        } else if (context.getResources().getString(R.string.tv_PieChart_text).equals(name)) {
+            holder.ivChart.setImageResource(R.drawable.pie_chart);
+        } else if (context.getResources().getString(R.string.tv_BubbleChart_text).equals(name)) {
+            holder.ivChart.setImageResource(R.drawable.bubble_chart);
+        } else if (context.getResources().getString(R.string.tv_ScatterChart_text).equals(name)) {
+            holder.ivChart.setImageResource(R.drawable.scatter_chart);
+        } else if (context.getResources().getString(R.string.tv_CandleStickChart_text).equals(name)) {
+            holder.ivChart.setImageResource(R.drawable.candle_stick_chart);
         }
     }
 
