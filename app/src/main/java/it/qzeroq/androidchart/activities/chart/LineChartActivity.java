@@ -3,6 +3,7 @@ package it.qzeroq.androidchart.activities.chart;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.github.mikephil.charting.animation.Easing;
@@ -15,6 +16,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import it.qzeroq.androidchart.R;
 import it.qzeroq.androidchart.data.LineChartData;
@@ -30,6 +32,7 @@ public class LineChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_line_chart);
         holder = new Holder();
+        Random rnd = new Random();
 
         Intent intentData = getIntent();
         String[] names = intentData.getStringArrayExtra("names");
@@ -41,17 +44,16 @@ public class LineChartActivity extends AppCompatActivity {
         List<String[]> y = formatData(yAxises, numberOfFunction);
 
         //Creazione lista di Entry
-        List<Entry> entries = new ArrayList<>();
+
+        List<ILineDataSet> lineDataSets = new ArrayList<>();
         for(int k = 0; k < x.size(); k++) {
+            List<Entry> entries = new ArrayList<>();
             for (int i = 0; i < x.get(k).length; i++) {
                 entries.add(new Entry(Float.parseFloat(x.get(k)[i]), Float.parseFloat(y.get(k)[i])));
             }
-        }
-
-
-        List<ILineDataSet> lineDataSets = new ArrayList<>();
-        for(int i = 0; i < x.size(); i++) {
-            lineDataSets.add(new LineDataSet(entries, names[i]));
+            LineDataSet set = new LineDataSet(entries, names[k]);
+            set.setColor(Color.rgb(rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
+            lineDataSets.add(set);
         }
 
         LineData lineData = new LineData(lineDataSets);
