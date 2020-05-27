@@ -1,9 +1,13 @@
 package it.qzeroq.androidchart.adapter;
 
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -43,6 +47,7 @@ public class InsertDataAdapter extends RecyclerView.Adapter<InsertDataAdapter.Ho
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holders.add(holder);
+        holder.etNameLine.setHint("Function " + (position + 1));
     }
 
 
@@ -87,10 +92,11 @@ public class InsertDataAdapter extends RecyclerView.Adapter<InsertDataAdapter.Ho
         return values;
     }
 
-    static class Holder extends RecyclerView.ViewHolder {
+    static class Holder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener, TextWatcher {
 
         final TextView tvNameLine, tvXAxis, tvYAxis;
         final EditText etNameLine, etXAxis, etYAxis;
+        CheckBox cbDefaultValues;
 
         Holder(@NonNull View itemView) {
             super(itemView);
@@ -100,7 +106,69 @@ public class InsertDataAdapter extends RecyclerView.Adapter<InsertDataAdapter.Ho
             etNameLine = itemView.findViewById(R.id.etNameLine);
             etXAxis = itemView.findViewById(R.id.etXAxis);
             etYAxis = itemView.findViewById(R.id.etYAxis);
+            cbDefaultValues = itemView.findViewById(R.id.cbDefaultValues);
+            cbDefaultValues.setOnCheckedChangeListener(this);
+            etYAxis.addTextChangedListener(this);
+        }
 
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+            if(isChecked){
+                int n = countNumbers(etYAxis.getText().toString());
+                String numbers = "";
+                for(int i = 0; i < n; i++){
+                    numbers += (i + 1 + " ");
+                }
+                etXAxis.setText(numbers);
+                etXAxis.setEnabled(false);
+            }
+            else{
+                etXAxis.setText("");
+                etXAxis.setEnabled(true);
+            }
+        }
+
+        private int countNumbers(String text) {
+            int n = 0;
+            if(text.length() == 0){
+                return 0;
+            }
+            if(Character.isDigit(text.charAt(0))){
+                n++;
+            }
+            for(int i = 0; i < text.length(); i++){
+                if(text.charAt(i) == ' '){
+                    n++;
+                }
+            }
+            if(text.endsWith(" ")){
+                n--;
+            }
+            return n;
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            String string = s.toString();
+            if(cbDefaultValues.isChecked()) {
+                if (Character.isDigit(string.charAt(0)) && string.length() == 1) {
+                    etXAxis.setText("1 ");
+                }
+                else if(Character.isDigit(string.charAt(string.length() - 1)) && Character.isSpaceChar(string.charAt(string.length() - 2))){
+                    String text = etXAxis.getText().toString();
+                    etXAxis.setText(text + " " + countNumbers(text));
+                }
+            }
         }
     }
 }
