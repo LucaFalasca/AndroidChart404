@@ -16,7 +16,6 @@ import java.util.List;
 
 import it.qzeroq.androidchart.R;
 import it.qzeroq.androidchart.activities.InsertDataActivity;
-import it.qzeroq.androidchart.activities.LineChartActivity;
 
 public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> implements View.OnClickListener {
 

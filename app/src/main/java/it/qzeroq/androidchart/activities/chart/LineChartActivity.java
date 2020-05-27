@@ -1,4 +1,4 @@
-package it.qzeroq.androidchart.activities;
+package it.qzeroq.androidchart.activities.chart;
 
 import androidx.appcompat.app.AppCompatActivity;
 

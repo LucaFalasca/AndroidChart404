@@ -9,12 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.github.mikephil.charting.data.Entry;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import it.qzeroq.androidchart.R;
+import it.qzeroq.androidchart.activities.chart.LineChartActivity;
 import it.qzeroq.androidchart.adapter.InsertDataAdapter;
 
 public class InsertDataActivity extends AppCompatActivity {
