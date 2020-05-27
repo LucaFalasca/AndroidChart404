@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import it.qzeroq.androidchart.R;
 
@@ -15,22 +17,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Holder holder = new Holder();
+        new Holder();
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent=new Intent(MainActivity.this,SelectionActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        },3000);
     }
 
-    class Holder implements View.OnClickListener{
+    class Holder {
 
-        private Button btnCreateChart;
+       private ImageView ivInizio;
 
-        Holder(){
-            btnCreateChart = findViewById(R.id.btnCreateChart);
-            btnCreateChart.setOnClickListener(this);
-        }
+       Holder(){
+           ivInizio = findViewById(R.id.ivInizio);
 
-        @Override
-        public void onClick(View v) {
-            Intent intent = new Intent(MainActivity.this, SelectionActivity.class);
-            startActivity(intent);
-        }
+           ivInizio.setImageDrawable(getDrawable(R.drawable.inizio));
+       }
     }
 }

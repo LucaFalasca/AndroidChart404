@@ -13,4 +13,5 @@
     <string name="et_name_line_text">Nome</string>
     <string name="tv_x_axis_string">Asse X</string>
     <string name="tv_y_axis_string">Asse Y</string>
+    <string name="image_description"> Immagine schermo iniziale </string>
 </resources>

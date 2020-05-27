@@ -14,5 +14,6 @@
     <string name="et_name_line_text">Name</string>
     <string name="tv_x_axis_string">X Axis</string>
     <string name="tv_y_axis_string">Y Axis</string>
+    <string name="image_description"> Welcome screen image </string>
 
 </resources>
