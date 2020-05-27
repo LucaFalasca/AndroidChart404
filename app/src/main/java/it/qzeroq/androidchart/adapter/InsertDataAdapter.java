@@ -161,13 +161,7 @@ public class InsertDataAdapter extends RecyclerView.Adapter<InsertDataAdapter.Ho
         public void afterTextChanged(Editable s) {
             String string = s.toString();
             if(cbDefaultValues.isChecked()) {
-                if (Character.isDigit(string.charAt(0)) && string.length() == 1) {
-                    etXAxis.setText("1 ");
-                }
-                else if(Character.isDigit(string.charAt(string.length() - 1)) && Character.isSpaceChar(string.charAt(string.length() - 2))){
-                    String text = etXAxis.getText().toString();
-                    etXAxis.setText(text + " " + countNumbers(text));
-                }
+                onCheckedChanged(cbDefaultValues, true);
             }
         }
     }
