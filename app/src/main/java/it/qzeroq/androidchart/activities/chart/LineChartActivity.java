@@ -100,29 +100,14 @@ public class LineChartActivity extends AppCompatActivity {
     private void PersonalizeChart(LineChart chart) {
         chart.animateX(1000, Easing.Linear);
     }
+
     class Holder{
 
         private LineChart lineChart;
-//        private List<LineChartData> dataList;
-
 
         Holder(){
             lineChart = findViewById(R.id.lineChart);
             lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
-            /*dataList = new ArrayList<>();
-            for(int i = 0; i < 10; i++){
-                dataList.add(new LineChartData(i + 1, i + 2));
-            }*/
         }
-
-
-        LineChart getLineChart() {
-            return lineChart;
-        }
-
-
-       /* List<LineChartData> getDataList() {
-            return dataList;
-        }*/
     }
 }
