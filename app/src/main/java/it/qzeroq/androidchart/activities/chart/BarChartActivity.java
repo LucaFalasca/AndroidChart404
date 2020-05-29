@@ -94,7 +94,7 @@ public class BarChartActivity extends AppCompatActivity{
 
         List<BarEntry> entries = new ArrayList<>();
         for(int i = 0; i < numberOfEntry; i++){
-            entries.add(new BarEntry(i, values.get(i), "prova"));
+            entries.add(new BarEntry(i, values.get(i)));
         }
 
         BarDataSet set = new BarDataSet(entries, name);
