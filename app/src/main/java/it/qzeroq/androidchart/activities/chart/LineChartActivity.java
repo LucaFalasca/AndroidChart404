@@ -7,8 +7,10 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import com.github.mikephil.charting.animation.Easing;
+import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -45,7 +47,7 @@ public class LineChartActivity extends AppCompatActivity {
 
         for(int i = 0; i < numberOfFunction; i++){
             //Rappresenta una singola funzione sul grafico
-            LineDataSet set = createDataSet(names[i], formatData(xAxises[i]), formatData(yAxises[i]));
+            LineDataSet set = (LineDataSet) createDataSet(names[i], formatData(xAxises[i]), formatData(yAxises[i]));
 
             //vengono aggiunti in una lista
             setList.add(set);
@@ -77,7 +79,7 @@ public class LineChartActivity extends AppCompatActivity {
         return list;
     }
 
-    private LineDataSet createDataSet(String name, List<Integer> xAxise, List<Integer> yAxise) {
+    private DataSet createDataSet(String name, List<Integer> xAxise, List<Integer> yAxise) {
         int numberOfEntry = Math.min(xAxise.size(), yAxise.size());
 
         List<Entry> entries = new ArrayList<>();
@@ -93,12 +95,17 @@ public class LineChartActivity extends AppCompatActivity {
         return set;
     }
 
-    private void PersonalizeDataSet(LineDataSet set) {
+    private void PersonalizeDataSet(DataSet set) {
         set.setColor(Color.rgb(rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
+        set.setValueTextColor(Color.WHITE);
     }
 
     private void PersonalizeChart(LineChart chart) {
         chart.animateX(1000, Easing.Linear);
+        chart.getXAxis().setTextColor(Color.WHITE);
+        chart.getAxisLeft().setTextColor(Color.WHITE);
+        chart.getAxisRight().setTextColor(Color.WHITE);
+        chart.getLegend().setTextColor(Color.WHITE);
     }
 
     class Holder{

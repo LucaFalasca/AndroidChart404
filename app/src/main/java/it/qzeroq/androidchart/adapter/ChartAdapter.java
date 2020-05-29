@@ -16,6 +16,7 @@ import java.util.List;
 
 import it.qzeroq.androidchart.R;
 import it.qzeroq.androidchart.activities.InsertDataActivity;
+import it.qzeroq.androidchart.activities.chart.BarChartActivity;
 
 public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> implements View.OnClickListener {
 
@@ -78,6 +79,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> impl
                 intent = new Intent(context, InsertDataActivity.class);
                 break;
             case 1:
+                intent = new Intent(context, BarChartActivity.class);
                 break;
         }
         context.startActivity(intent);
