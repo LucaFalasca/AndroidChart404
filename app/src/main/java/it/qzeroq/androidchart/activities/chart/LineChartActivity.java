@@ -24,7 +24,7 @@ import it.qzeroq.androidchart.data.LineChartData;
 public class LineChartActivity extends AppCompatActivity {
 
     Holder holder;
-
+    Random rnd;
     // ------- INSERIRE GESTIONE ERRORI DI INSERIMENTO DATI DA PARTE DELL'UTENTE --------
 
     @Override
@@ -32,7 +32,7 @@ public class LineChartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_line_chart);
         holder = new Holder();
-        Random rnd = new Random();
+        rnd = new Random();
 
         Intent intentData = getIntent();
         String[] names = intentData.getStringArrayExtra("names");
@@ -40,40 +40,66 @@ public class LineChartActivity extends AppCompatActivity {
         String[] yAxises = intentData.getStringArrayExtra("yAxises");
         int numberOfFunction = intentData.getIntExtra("n", 1);
 
-        List<String[]> x = formatData(xAxises, numberOfFunction);
-        List<String[]> y = formatData(yAxises, numberOfFunction);
+        //Lista delle funzioni da inserire nel grafico
+        List<ILineDataSet> setList = new ArrayList<>();
 
-        //Creazione lista di Entry
+        for(int i = 0; i < numberOfFunction; i++){
+            //Rappresenta una singola funzione sul grafico
+            LineDataSet set = createDataSet(names[i], formatData(xAxises[i]), formatData(yAxises[i]));
 
-        List<ILineDataSet> lineDataSets = new ArrayList<>();
-        for(int k = 0; k < x.size(); k++) {
-            List<Entry> entries = new ArrayList<>();
-            for (int i = 0; i < x.get(k).length; i++) {
-                entries.add(new Entry(Float.parseFloat(x.get(k)[i]), Float.parseFloat(y.get(k)[i])));
-            }
-            LineDataSet set = new LineDataSet(entries, names[k]);
-            set.setColor(Color.rgb(rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
-            lineDataSets.add(set);
+            //vengono aggiunti in una lista
+            setList.add(set);
         }
 
-        LineData lineData = new LineData(lineDataSets);
+        LineData lineData = new LineData(setList);
 
-        holder.getLineChart().setData(lineData);
+        holder.lineChart.setData(lineData);
+        holder.lineChart.invalidate();
 
-        holder.getLineChart().invalidate();
-
-        holder.lineChart.animateX(1000, Easing.Linear);
+        PersonalizeChart(holder.lineChart);
     }
 
-    private List<String[]> formatData(String[] values, int n) {
-        List<String[]> stringList = new ArrayList<>();
-        for(int i = 0; i < n; i++){
-            stringList.add(values[i].replace(",", " ").replace("  ", " ").split(" "));
+    private List<Integer> formatData(String values) {
+        List<Integer> list = new ArrayList<>();
+
+        //controlli
+        while(values.endsWith(" ")){
+            values = values.substring(0, values.length() - 1);
         }
-        return stringList;
+        values.replace(",", "");
+
+
+        String[] strings = values.split(" ");
+        for(int i = 0; i < strings.length; i++){
+            list.add(Integer.valueOf(strings[i]));
+        }
+
+        return list;
     }
 
+    private LineDataSet createDataSet(String name, List<Integer> xAxise, List<Integer> yAxise) {
+        int numberOfEntry = Math.min(xAxise.size(), yAxise.size());
 
+        List<Entry> entries = new ArrayList<>();
+        for(int i = 0; i < numberOfEntry; i++){
+            entries.add(new Entry(xAxise.get(i), yAxise.get(i)));
+        }
+
+        LineDataSet set = new LineDataSet(entries, name);
+
+        //Personalizzazione del data set
+        PersonalizeDataSet(set);
+
+        return set;
+    }
+
+    private void PersonalizeDataSet(LineDataSet set) {
+        set.setColor(Color.rgb(rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
+    }
+
+    private void PersonalizeChart(LineChart chart) {
+        chart.animateX(1000, Easing.Linear);
+    }
     class Holder{
 
         private LineChart lineChart;
