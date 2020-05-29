@@ -28,7 +28,7 @@ public class SelectionActivity extends AppCompatActivity {
         chartNameList.add(getResources().getString(R.string.tv_CandleStickChart_text));
         chartNameList.add(getResources().getString(R.string.tv_BubbleChart_text));
 
-        Holder holder = new Holder(chartNameList);
+        new Holder(chartNameList);
 
     }
 

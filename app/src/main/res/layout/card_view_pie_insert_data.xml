@@ -18,46 +18,18 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tvNameLine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginTop="@dimen/margin_standard"
-                android:fontFamily="@font/happy_monkey"
-                android:text="@string/tv_name_line_string"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <EditText
-                android:id="@+id/etNameLine"
-                android:layout_width="209dp"
-                android:layout_height="52dp"
-                android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginTop="@dimen/margin_standard"
-                android:layout_marginEnd="@dimen/margin_standard"
-                android:autofillHints="@string/et_name_line_text"
-                android:ems="10"
-                android:fontFamily="@font/happy_monkey"
-                android:hint="@string/function"
-                android:inputType="textPersonName"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvNameLine" />
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/tvSliceName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginTop="@dimen/margin_standard"
+                android:layout_marginTop="16dp"
                 android:fontFamily="@font/happy_monkey"
-                android:text="@string/tv_x_axis_string"
+                android:text="@string/slice_name"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etNameLine" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/etSliceName"
@@ -67,10 +39,10 @@
                 android:layout_marginTop="@dimen/margin_standard"
                 android:layout_marginEnd="@dimen/margin_standard"
                 android:ems="10"
-                android:enabled="false"
+                android:enabled="true"
                 android:fontFamily="@font/happy_monkey"
                 android:gravity="start|top"
-                android:hint="@string/x_axis"
+                android:hint="@string/ex_slice_name"
                 android:importantForAutofill="no"
                 android:inputType="textMultiLine"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -85,7 +57,7 @@
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginTop="@dimen/margin_standard"
                 android:fontFamily="@font/happy_monkey"
-                android:text="@string/tv_y_axis_string"
+                android:text="@string/slice_value"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etSliceName" />
 
@@ -100,24 +72,13 @@
                 android:ems="10"
                 android:fontFamily="@font/happy_monkey"
                 android:gravity="start|top"
-                android:hint="@string/y_axis"
+                android:hint="@string/ex_slice_value"
                 android:inputType="textMultiLine"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvValueSlice" />
-
-            <CheckBox
-                android:id="@+id/cbDefaultValues"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
-                android:checked="true"
-                android:text="Default"
-                app:layout_constraintStart_toEndOf="@+id/etSliceName"
-                app:layout_constraintTop_toBottomOf="@+id/tvSliceName" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

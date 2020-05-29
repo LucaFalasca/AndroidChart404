@@ -101,11 +101,11 @@ public class InsertDataAdapter extends RecyclerView.Adapter<InsertDataAdapter.Ho
         Holder(@NonNull View itemView) {
             super(itemView);
             tvNameLine = itemView.findViewById(R.id.tvNameLine);
-            tvXAxis = itemView.findViewById(R.id.tvXAxis);
-            tvYAxis = itemView.findViewById(R.id.tvYAxis);
+            tvXAxis = itemView.findViewById(R.id.tvSliceName);
+            tvYAxis = itemView.findViewById(R.id.tvValueSlice);
             etNameLine = itemView.findViewById(R.id.etNameLine);
-            etXAxis = itemView.findViewById(R.id.etXAxis);
-            etYAxis = itemView.findViewById(R.id.etYAxis);
+            etXAxis = itemView.findViewById(R.id.etSliceName);
+            etYAxis = itemView.findViewById(R.id.etValueSlice);
             cbDefaultValues = itemView.findViewById(R.id.cbDefaultValues);
             cbDefaultValues.setOnCheckedChangeListener(this);
             etYAxis.addTextChangedListener(this);
