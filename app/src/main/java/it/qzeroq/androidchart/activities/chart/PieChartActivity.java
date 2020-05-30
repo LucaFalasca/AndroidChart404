@@ -14,6 +14,7 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.PercentFormatter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,14 +29,9 @@ public class PieChartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pie_chart);
-
         holder = new Holder();
 
         Intent intentData = getIntent();
-
-        ArrayList<Integer> color;
-        color = addColor();
-
         String[] names = intentData.getStringArrayExtra("names");
         String[] values = intentData.getStringArrayExtra("values");
         int n = intentData.getIntExtra("n", 0);
@@ -45,18 +41,20 @@ public class PieChartActivity extends AppCompatActivity {
             assert values[i] != null;
             assert names[i] != null;
             entries.add(new PieEntry(Float.parseFloat(values[i]), names[i]));
-
         }
 
         PieDataSet set = new PieDataSet(entries, "");
-        set.setColors(color);
+        PersonalizeDataSet(set);
 
         PieData data = new PieData(set);
+
         holder.pieChart.setData(data);
+        PersonalizeChart(holder.pieChart);
+
         holder.pieChart.invalidate();
     }
 
-    ArrayList<Integer> addColor(){
+    protected ArrayList<Integer> addColor(){
         ArrayList<Integer> colors = new ArrayList<>();
         colors.add(getColor(R.color.Color1));
         colors.add(getColor(R.color.colorPrimary));
@@ -69,21 +67,30 @@ public class PieChartActivity extends AppCompatActivity {
         return colors;
     }
 
+    private void PersonalizeDataSet(PieDataSet set){
+        set.setColors(addColor());
+        set.setValueTextColor(Color.WHITE);
+        set.setValueTextSize(15);
+    }
+
+    private void PersonalizeChart(PieChart chart) {
+        chart.setHoleColor(getColor(R.color.background));
+        chart.setUsePercentValues(true);
+        chart.getDescription().setEnabled(false);
+        Legend legend = chart.getLegend();
+        legend.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
+        legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
+        legend.setOrientation(Legend.LegendOrientation.VERTICAL);
+        legend.setFormSize(15);
+        legend.setTextSize(15);
+        legend.setTextColor(Color.WHITE);
+    }
     class Holder{
+
         private PieChart pieChart;
+
         Holder(){
             pieChart = findViewById(R.id.pieChart);
-            pieChart.setHoleColor(getColor(R.color.background));
-            pieChart.setUsePercentValues(true);
-            pieChart.getDescription().setEnabled(false);
-            Legend legend = pieChart.getLegend();
-            legend.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
-            legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
-            legend.setOrientation(Legend.LegendOrientation.VERTICAL);
-            legend.setFormSize(15);
-            legend.setTextSize(15);
-
-
         }
     }
 }

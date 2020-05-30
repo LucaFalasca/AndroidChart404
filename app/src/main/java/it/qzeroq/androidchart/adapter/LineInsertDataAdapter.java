@@ -20,13 +20,13 @@ import java.util.List;
 
 import it.qzeroq.androidchart.R;
 
-public class InsertDataAdapter extends RecyclerView.Adapter<InsertDataAdapter.Holder> implements View.OnClickListener {
+public class LineInsertDataAdapter extends RecyclerView.Adapter<LineInsertDataAdapter.Holder> implements View.OnClickListener {
 
     private Context context;
     private int c;
     private List<Holder> holders;
 
-    public InsertDataAdapter(Context context){
+    public LineInsertDataAdapter(Context context){
         this.context = context;
         c = 1;
         holders = new ArrayList<>();
