@@ -1,6 +1,6 @@
-package it.qzeroq.androidchart.adapter;
+package it.qzeroq.androidchart.adapter.chart;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,33 +16,30 @@ import java.util.List;
 
 import it.qzeroq.androidchart.R;
 
-public class PieInsertDataAdapter extends RecyclerView.Adapter<PieInsertDataAdapter.Holder> implements View.OnClickListener {
-    private Context context;
+public class PieInsertDataAdapter extends RecyclerView.Adapter<PieInsertDataAdapter.Holder>{
     private int c;
-    private List<PieInsertDataAdapter.Holder> holders;
+    private List<Holder> holders;
 
-    public PieInsertDataAdapter(Context context) {
-        this.context = context;
+    public PieInsertDataAdapter() {
         c = 1;
         holders = new ArrayList<>();
     }
 
     @NonNull
     @Override
-    public PieInsertDataAdapter.Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ConstraintLayout constraintLayout = (ConstraintLayout) LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.card_view_pie_insert_data, parent, false);
-        constraintLayout.setOnClickListener(this);
 
         return new Holder(constraintLayout);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holders.add(holder);
+        holder.etSliceName.setText("Category " + (position + 1));
     }
-
-
 
     @Override
     public int getItemCount() {
@@ -52,12 +49,6 @@ public class PieInsertDataAdapter extends RecyclerView.Adapter<PieInsertDataAdap
     public void addCard(){
         c++;
         notifyItemInserted(c);
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        int position = ((RecyclerView) v.getParent()).getChildAdapterPosition(v);
     }
 
     public String[] getNames(){

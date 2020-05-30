@@ -1,13 +1,12 @@
 package it.qzeroq.androidchart.activities.chart;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.github.mikephil.charting.animation.Easing;
-import com.github.mikephil.charting.charts.Chart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.DataSet;
@@ -21,7 +20,6 @@ import java.util.List;
 import java.util.Random;
 
 import it.qzeroq.androidchart.R;
-import it.qzeroq.androidchart.data.LineChartData;
 
 public class LineChartActivity extends AppCompatActivity {
 
@@ -46,6 +44,10 @@ public class LineChartActivity extends AppCompatActivity {
         List<ILineDataSet> setList = new ArrayList<>();
 
         for(int i = 0; i < numberOfFunction; i++){
+            assert names != null;
+            assert yAxises != null;
+            assert xAxises != null;
+
             //Rappresenta una singola funzione sul grafico
             LineDataSet set = (LineDataSet) createDataSet(names[i], formatData(xAxises[i]), formatData(yAxises[i]));
 

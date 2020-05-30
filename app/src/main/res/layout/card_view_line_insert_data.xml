@@ -21,7 +21,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvNameLine"
+                android:id="@+id/tvGroupName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
@@ -32,7 +32,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/etNameLine"
+                android:id="@+id/etGroupName"
                 android:layout_width="209dp"
                 android:layout_height="52dp"
                 android:layout_marginStart="@dimen/margin_standard"
@@ -46,7 +46,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvNameLine" />
+                app:layout_constraintTop_toBottomOf="@+id/tvGroupName" />
 
             <TextView
                 android:id="@+id/tvSliceName"
@@ -57,7 +57,7 @@
                 android:fontFamily="@font/happy_monkey"
                 android:text="@string/tv_x_axis_string"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etNameLine" />
+                app:layout_constraintTop_toBottomOf="@+id/etGroupName" />
 
             <EditText
                 android:id="@+id/etSliceName"

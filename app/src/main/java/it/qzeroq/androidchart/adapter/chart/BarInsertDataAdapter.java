@@ -1,6 +1,6 @@
-package it.qzeroq.androidchart.adapter;
+package it.qzeroq.androidchart.adapter.chart;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -20,52 +20,39 @@ import java.util.List;
 
 import it.qzeroq.androidchart.R;
 
-public class LineInsertDataAdapter extends RecyclerView.Adapter<LineInsertDataAdapter.Holder> implements View.OnClickListener {
-
-    private Context context;
+public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdapter.Holder>{
     private int c;
     private List<Holder> holders;
 
-    public LineInsertDataAdapter(Context context){
-        this.context = context;
+    public BarInsertDataAdapter(){
         c = 1;
         holders = new ArrayList<>();
     }
-
 
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         ConstraintLayout constraintLayout = (ConstraintLayout) LayoutInflater.from(parent.getContext()).
-                inflate(R.layout.card_view_insert_data, parent, false);
-        constraintLayout.setOnClickListener(this);
+                inflate(R.layout.card_view_bar_insert_data, parent, false);
 
         return new Holder(constraintLayout);
     }
 
-
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holders.add(holder);
-        holder.etNameLine.setText("Function " + (position + 1));
+        holder.etNameLine.setText("Group " + (position + 1));
     }
-
 
     @Override
     public int getItemCount() {
         return c;
     }
 
-
     public void addCard(){
         c++;
         notifyItemInserted(c);
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        int position = ((RecyclerView) v.getParent()).getChildAdapterPosition(v);
     }
 
     public String[] getNames(){
@@ -100,10 +87,10 @@ public class LineInsertDataAdapter extends RecyclerView.Adapter<LineInsertDataAd
 
         Holder(@NonNull View itemView) {
             super(itemView);
-            tvNameLine = itemView.findViewById(R.id.tvNameLine);
+            tvNameLine = itemView.findViewById(R.id.tvGroupName);
             tvXAxis = itemView.findViewById(R.id.tvSliceName);
             tvYAxis = itemView.findViewById(R.id.tvValueSlice);
-            etNameLine = itemView.findViewById(R.id.etNameLine);
+            etNameLine = itemView.findViewById(R.id.etGroupName);
             etXAxis = itemView.findViewById(R.id.etSliceName);
             etYAxis = itemView.findViewById(R.id.etValueSlice);
             cbDefaultValues = itemView.findViewById(R.id.cbDefaultValues);
@@ -115,11 +102,11 @@ public class LineInsertDataAdapter extends RecyclerView.Adapter<LineInsertDataAd
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             if(isChecked){
                 int n = countNumbers(etYAxis.getText().toString());
-                String numbers = "";
+                StringBuilder numbers = new StringBuilder();
                 for(int i = 0; i < n; i++){
-                    numbers += (i + 1 + " ");
+                    numbers.append(i + 1).append(" ");
                 }
-                etXAxis.setText(numbers);
+                etXAxis.setText(numbers.toString());
                 etXAxis.setEnabled(false);
             }
             else{
@@ -159,7 +146,6 @@ public class LineInsertDataAdapter extends RecyclerView.Adapter<LineInsertDataAd
 
         @Override
         public void afterTextChanged(Editable s) {
-            String string = s.toString();
             if(cbDefaultValues.isChecked()) {
                 onCheckedChanged(cbDefaultValues, true);
             }
