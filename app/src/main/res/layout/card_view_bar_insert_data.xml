@@ -27,13 +27,14 @@
                 android:layout_marginTop="@dimen/margin_standard"
                 android:fontFamily="@font/happy_monkey"
                 android:text="@string/group_name_string"
+                android:textSize="@dimen/tv_ts"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
                 android:id="@+id/etGroupName"
-                android:layout_width="209dp"
-                android:layout_height="52dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginTop="@dimen/margin_standard"
                 android:layout_marginEnd="@dimen/margin_standard"
@@ -42,6 +43,7 @@
                 android:fontFamily="@font/happy_monkey"
                 android:hint="@string/et_group_string"
                 android:inputType="textPersonName"
+                android:textSize="@dimen/et_ts"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -55,6 +57,7 @@
                 android:layout_marginTop="@dimen/margin_standard"
                 android:fontFamily="@font/happy_monkey"
                 android:text="@string/tv_x_axis_string"
+                android:textSize="@dimen/tv_ts"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etGroupName" />
 
@@ -69,9 +72,10 @@
                 android:enabled="false"
                 android:fontFamily="@font/happy_monkey"
                 android:gravity="start|top"
-                android:hint="BarName1 BarName2 ..."
+                android:hint="@string/bar_name"
                 android:importantForAutofill="no"
                 android:inputType="textMultiLine"
+                android:textSize="@dimen/et_ts"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -85,6 +89,7 @@
                 android:layout_marginTop="@dimen/margin_standard"
                 android:fontFamily="@font/happy_monkey"
                 android:text="@string/tv_y_axis_string"
+                android:textSize="@dimen/tv_ts"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etSliceName" />
 
@@ -99,22 +104,25 @@
                 android:ems="10"
                 android:fontFamily="@font/happy_monkey"
                 android:gravity="start|top"
-                android:hint="12 34 ..."
+                android:hint="@string/bar_value"
                 android:inputType="textMultiLine"
+                android:textSize="@dimen/et_ts"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvValueSlice" />
+                app:layout_constraintTop_toBottomOf="@+id/tvValueSlice"
+                android:autofillHints="" />
 
             <CheckBox
                 android:id="@+id/cbDefaultValues"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginStart="@dimen/button_h"
+                android:layout_marginTop="@dimen/button_w"
                 android:checked="true"
-                android:text="Default"
+                android:text="@string/deafult"
+                android:textSize="@dimen/tv_ts"
                 app:layout_constraintStart_toEndOf="@+id/etSliceName"
                 app:layout_constraintTop_toBottomOf="@+id/tvSliceName" />
 

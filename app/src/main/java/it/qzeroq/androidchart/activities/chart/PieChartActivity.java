@@ -79,8 +79,8 @@ public class PieChartActivity extends AppCompatActivity {
         legend.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
         legend.setOrientation(Legend.LegendOrientation.VERTICAL);
-        legend.setFormSize(15);
-        legend.setTextSize(15);
+        legend.setFormSize(getResources().getDimension(R.dimen.legend));
+        legend.setTextSize(getResources().getDimension(R.dimen.legend));
         legend.setTextColor(Color.WHITE);
     }
     class Holder{
