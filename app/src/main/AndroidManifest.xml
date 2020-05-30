@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar" >
-        <activity android:name=".activities.chart.PieChartActivity" >
-        </activity>
+        <activity android:name=".activities.chart.PieChartActivity" />
         <activity android:name=".activities.chart.BarChartActivity" />
         <activity android:name=".activities.InsertDataActivity" />
         <activity android:name=".activities.SelectionActivity" />
@@ -29,3 +28,5 @@
     </application>
 
 </manifest>
+
+

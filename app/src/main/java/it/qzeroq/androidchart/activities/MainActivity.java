@@ -5,10 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-
 import it.qzeroq.androidchart.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(MainActivity.this,SelectionActivity.class);
+                Intent intent=new Intent(MainActivity.this, SelectionActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -31,12 +28,9 @@ public class MainActivity extends AppCompatActivity {
 
     class Holder {
 
-       private ImageView ivInizio;
-
-       Holder(){
-           ivInizio = findViewById(R.id.ivInizio);
-
-           ivInizio.setImageDrawable(getDrawable(R.drawable.inizio));
+        Holder(){
+            ImageView ivInizio = findViewById(R.id.ivInizio);
+            ivInizio.setImageDrawable(getDrawable(R.drawable.inizio));
        }
     }
 }

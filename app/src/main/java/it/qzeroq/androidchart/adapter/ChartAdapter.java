@@ -23,7 +23,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> impl
     private List<String> chartNameList;
 
 
-    public ChartAdapter(Context context, List<String> chartNameList){
+    public ChartAdapter(Context context, List<String> chartNameList) {
         this.chartNameList = chartNameList;
         this.context = context;
     }
@@ -47,7 +47,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> impl
         String name = chartNameList.get(position);
         holder.tvChart.setText(name);
         if (context.getResources().getString(R.string.tv_LineChart_text).equals(name)) {
-            holder.ivChart.setImageResource(R.drawable.linear_chart);
+            holder.ivChart.setImageResource(R.drawable.line_chart);
         } else if (context.getResources().getString(R.string.tv_BarChart_text).equals(name)) {
             holder.ivChart.setImageResource(R.drawable.bar_chart);
         } else if (context.getResources().getString(R.string.tv_PieChart_text).equals(name)) {

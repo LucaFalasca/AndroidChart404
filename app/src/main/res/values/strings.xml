@@ -10,19 +10,19 @@
     <string name="tv_RadarChart_text">Radar Chart</string>
 
     <string name="create_chart_btn_text">Create new chart</string>
-    <string name="tv_name_line_string">Function Name</string>
+    <string name="tv_name_line_string">Function name</string>
     <string name="et_name_line_text">Name</string>
     <string name="tv_x_axis_string">X Axis</string>
     <string name="tv_y_axis_string">Y Axis</string>
     <string name="image_description"> Start screen image </string>
 
-    <string name="x_axis"> X-Axys values (1 2 3...) </string>
-    <string name="y_axis"> Y-Axys values (15 6 7...)</string>
+    <string name="x_axis">X-Axys values (1 2 3...)</string>
+    <string name="y_axis">Y-Axys values (15 6 7...)</string>
     <string name="function"> Function </string>
 
     <string name="slice_name"> Slice name</string>
     <string name="slice_value"> Slice value</string>
-    <string name="ex_slice_name">Smoking</string>
+    <string name="ex_slice_name"> Category </string>
     <string name="ex_slice_value">18</string>
 
 </resources>

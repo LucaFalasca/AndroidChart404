@@ -10,12 +10,11 @@ import android.view.View;
 import android.widget.Button;
 
 import it.qzeroq.androidchart.R;
-import it.qzeroq.androidchart.activities.chart.LineChartActivity;
-import it.qzeroq.androidchart.activities.chart.PieChartActivity;
-import it.qzeroq.androidchart.adapter.InsertDataAdapter;
-import it.qzeroq.androidchart.adapter.PieInsertDataAdapter;
+import it.qzeroq.androidchart.activities.chart.*;
+import it.qzeroq.androidchart.adapter.*;
 
 public class InsertDataActivity extends AppCompatActivity {
+
     private int idGraph;
     private InsertDataAdapter adapter;
     private PieInsertDataAdapter pAdapter;
@@ -26,8 +25,9 @@ public class InsertDataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert_data);
+
         Intent intentData = getIntent();
-        idGraph = intentData.getIntExtra("value",6);
+        idGraph = intentData.getIntExtra("value",6);    //(perché 6 ?????????????)
         holder = new Holder(idGraph);
     }
 
@@ -52,8 +52,8 @@ public class InsertDataActivity extends AppCompatActivity {
                 }
             };
             rvInsertLine.setLayoutManager(layoutManager);
-            switch (id) {
 
+            switch (id) {
                 case 0:
                     adapter = new InsertDataAdapter(InsertDataActivity.this);
                     rvInsertLine.setAdapter(adapter);

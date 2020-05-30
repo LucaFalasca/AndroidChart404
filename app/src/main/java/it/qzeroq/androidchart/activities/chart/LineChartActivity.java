@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Random;
 
 import it.qzeroq.androidchart.R;
-import it.qzeroq.androidchart.data.LineChartData;
+import it.qzeroq.androidchart.data.*;
 
 public class LineChartActivity extends AppCompatActivity {
 

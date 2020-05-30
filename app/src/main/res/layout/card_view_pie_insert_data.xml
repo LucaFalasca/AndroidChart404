@@ -33,7 +33,7 @@
 
             <EditText
                 android:id="@+id/etSliceName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginTop="@dimen/margin_standard"
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginTop="@dimen/margin_standard"
+                android:layout_marginTop="20dp"
                 android:fontFamily="@font/happy_monkey"
                 android:text="@string/slice_value"
                 app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +63,7 @@
 
             <EditText
                 android:id="@+id/etValueSlice"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginTop="@dimen/margin_standard"

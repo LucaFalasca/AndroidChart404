@@ -43,7 +43,7 @@ public class BarChartActivity extends AppCompatActivity{
 
         String[] groups = {"a"};
         String[] names = {"ciao1 ciao2"};
-        String[] values = {"2 3"};
+        String[] values = {"2 3"};  //valore di y
         int numberOfFunction = 1;
 
         BarData barData = new BarData();
@@ -64,6 +64,7 @@ public class BarChartActivity extends AppCompatActivity{
         holder.barChart.invalidate();
     }
 
+
     private void AddLabels(BarChart barChart, String name) {
         final List<String> labels = formatDataToString(name);
         barChart.getXAxis().setValueFormatter(new ValueFormatter() {
@@ -73,6 +74,7 @@ public class BarChartActivity extends AppCompatActivity{
             }
         });
     }
+
 
     private List<Integer> formatDataToInteger(String values) {
         List<Integer> list = new ArrayList<>();
