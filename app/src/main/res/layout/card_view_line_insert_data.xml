@@ -21,7 +21,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/tvNameLine"
+                android:id="@+id/tvGroupName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
@@ -32,8 +32,8 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/etNameLine"
-                android:layout_width="0dp"
+                android:id="@+id/etGroupName"
+                android:layout_width="209dp"
                 android:layout_height="52dp"
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginTop="@dimen/margin_standard"
@@ -46,25 +46,25 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvNameLine" />
+                app:layout_constraintTop_toBottomOf="@+id/tvGroupName" />
 
             <TextView
                 android:id="@+id/tvSliceName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/margin_standard"
                 android:fontFamily="@font/happy_monkey"
                 android:text="@string/tv_x_axis_string"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etNameLine" />
+                app:layout_constraintTop_toBottomOf="@+id/etGroupName" />
 
             <EditText
                 android:id="@+id/etSliceName"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/margin_standard"
                 android:layout_marginEnd="@dimen/margin_standard"
                 android:ems="10"
                 android:enabled="false"
@@ -83,7 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/margin_standard"
                 android:fontFamily="@font/happy_monkey"
                 android:text="@string/tv_y_axis_string"
                 app:layout_constraintStart_toStartOf="parent"
@@ -91,10 +91,10 @@
 
             <EditText
                 android:id="@+id/etValueSlice"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/margin_standard"
                 android:layout_marginEnd="@dimen/margin_standard"
                 android:layout_marginBottom="@dimen/margin_standard"
                 android:ems="10"
@@ -112,12 +112,12 @@
                 android:id="@+id/cbDefaultValues"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
                 android:checked="true"
-                android:fontFamily="@font/happy_monkey"
                 android:text="Default"
-                android:textColor="@android:color/secondary_text_dark"
-                app:layout_constraintEnd_toEndOf="@+id/etSliceName"
-                app:layout_constraintTop_toBottomOf="@+id/etSliceName" />
+                app:layout_constraintStart_toEndOf="@+id/etSliceName"
+                app:layout_constraintTop_toBottomOf="@+id/tvSliceName" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

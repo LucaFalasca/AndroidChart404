@@ -2,6 +2,7 @@ package it.qzeroq.androidchart.activities.chart;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -33,24 +34,18 @@ public class BarChartActivity extends AppCompatActivity{
         holder = new Holder();
         rnd = new Random();
 
-        /*
+
         Intent intentData = getIntent();
-        String[] names = intentData.getStringArrayExtra("names");
+        String[] groups = intentData.getStringArrayExtra("groups");
         String[] xAxises = intentData.getStringArrayExtra("xAxises");
         String[] yAxises = intentData.getStringArrayExtra("yAxises");
         int numberOfFunction = intentData.getIntExtra("n", 1);
-        */
-
-        String[] groups = {"a"};
-        String[] names = {"ciao1 ciao2"};
-        String[] values = {"2 3"};  //valore di y
-        int numberOfFunction = 1;
 
         BarData barData = new BarData();
 
         for(int i = 0; i < numberOfFunction; i++){
             //Rappresenta una singola barra sul grafico
-            BarDataSet set = (BarDataSet) createDataSet(groups[i], formatDataToInteger(values[i]));
+            BarDataSet set = (BarDataSet) createDataSet(groups[i], formatDataToInteger(yAxises[i]));
 
             //vengono al barData
             barData.addDataSet(set);
@@ -58,12 +53,11 @@ public class BarChartActivity extends AppCompatActivity{
 
         holder.barChart.setData(barData);
 
-        AddLabels(holder.barChart, names[0]);
+        AddLabels(holder.barChart, xAxises[0]);
         PersonalizeChart(holder.barChart);
 
         holder.barChart.invalidate();
     }
-
 
     private void AddLabels(BarChart barChart, String name) {
         final List<String> labels = formatDataToString(name);
@@ -74,7 +68,6 @@ public class BarChartActivity extends AppCompatActivity{
             }
         });
     }
-
 
     private List<Integer> formatDataToInteger(String values) {
         List<Integer> list = new ArrayList<>();
@@ -150,8 +143,6 @@ public class BarChartActivity extends AppCompatActivity{
         chart.getXAxis().setAxisMaximum(chart.getXAxis().getAxisMaximum());
 
         chart.getDescription().setEnabled(false);
-
-
     }
 
     class Holder{

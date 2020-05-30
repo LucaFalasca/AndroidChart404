@@ -10,14 +10,18 @@ import android.view.View;
 import android.widget.Button;
 
 import it.qzeroq.androidchart.R;
-import it.qzeroq.androidchart.activities.chart.*;
-import it.qzeroq.androidchart.adapter.*;
+import it.qzeroq.androidchart.activities.chart.BarChartActivity;
+import it.qzeroq.androidchart.activities.chart.LineChartActivity;
+import it.qzeroq.androidchart.activities.chart.PieChartActivity;
+import it.qzeroq.androidchart.adapter.chart.BarInsertDataAdapter;
+import it.qzeroq.androidchart.adapter.chart.LineInsertDataAdapter;
+import it.qzeroq.androidchart.adapter.chart.PieInsertDataAdapter;
 
 public class InsertDataActivity extends AppCompatActivity {
-
     private int idGraph;
-    private InsertDataAdapter adapter;
+    private LineInsertDataAdapter adapter;
     private PieInsertDataAdapter pAdapter;
+    private BarInsertDataAdapter bAdapter;
     Holder holder;
 
 
@@ -25,9 +29,8 @@ public class InsertDataActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert_data);
-
         Intent intentData = getIntent();
-        idGraph = intentData.getIntExtra("value",6);    //(perché 6 ?????????????)
+        idGraph = intentData.getIntExtra("value",6);
         holder = new Holder(idGraph);
     }
 
@@ -52,18 +55,21 @@ public class InsertDataActivity extends AppCompatActivity {
                 }
             };
             rvInsertLine.setLayoutManager(layoutManager);
-
             switch (id) {
                 case 0:
-                    adapter = new InsertDataAdapter(InsertDataActivity.this);
+                    adapter = new LineInsertDataAdapter();
                     rvInsertLine.setAdapter(adapter);
                     break;
+                case 1:
+                    bAdapter = new BarInsertDataAdapter();
+                    rvInsertLine.setAdapter(bAdapter);
+                    break;
                 case 2:
-                    pAdapter = new PieInsertDataAdapter(InsertDataActivity.this);
+                    pAdapter = new PieInsertDataAdapter();
                     rvInsertLine.setAdapter(pAdapter);
                     break;
-
             }
+
 
         }
 
@@ -74,43 +80,43 @@ public class InsertDataActivity extends AppCompatActivity {
                 switch (idGraph) {
                     case 0:
                         adapter.addCard();
+                        break;
+                    case 1:
+                        bAdapter.addCard();
+                        break;
                     case 2:
                         pAdapter.addCard();
-
+                        break;
                 }
-
             }
             else if (v.getId() == R.id.btnGenerate) {
-                //makeDataSet();
                 Intent intent = null;
                 switch (idGraph) {
-
                     case 0:
                         intent =new Intent(InsertDataActivity.this, LineChartActivity.class);
                         intent.putExtra("names", adapter.getNames());
                         intent.putExtra("xAxises", adapter.getXAxis());
                         intent.putExtra("yAxises", adapter.getYAxis());
                         intent.putExtra("n", adapter.getItemCount());
-
+                        break;
+                    case 1:
+                        intent =new Intent(InsertDataActivity.this, BarChartActivity.class);
+                        intent.putExtra("groups", bAdapter.getNames());
+                        intent.putExtra("xAxises", bAdapter.getXAxis());
+                        intent.putExtra("yAxises", bAdapter.getYAxis());
+                        intent.putExtra("n", bAdapter.getItemCount());
+                        break;
                     case 2:
                         intent =new Intent(InsertDataActivity.this, PieChartActivity.class);
                         intent.putExtra("names", pAdapter.getNames());
                         intent.putExtra("values", pAdapter.getvaluesSlice());
                         intent.putExtra("n", pAdapter.getItemCount());
+                        break;
+
                 }
                 startActivity(intent);
             }
         }
     }
 
-/*
-    private void makeDataSet() {
-        int items = adapter.getItemCount();
-        List<Entry> entries = new ArrayList<>();
-        for (int i = 0; i < items; i++) {
-
-
-            //entries.add(new Entry( Integer.parseInt(adapter.) ) );
-        }
-    }*/
 }

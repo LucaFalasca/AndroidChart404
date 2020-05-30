@@ -24,4 +24,6 @@
     <string name="slice_value"> Valore spicchio</string>
     <string name="ex_slice_name">Fumatori</string>
     <string name="ex_slice_value">18</string>
+    <string name="group_name_string">Nome Gruppo</string>
+    <string name="et_group_string">Gruppo</string>
 </resources>

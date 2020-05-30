@@ -24,5 +24,7 @@
     <string name="slice_value"> Slice value</string>
     <string name="ex_slice_name"> Category </string>
     <string name="ex_slice_value">18</string>
+    <string name="group_name_string">Group name</string>
+    <string name="et_group_string">Group</string>
 
 </resources>
