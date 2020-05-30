@@ -10,11 +10,12 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/height"
         android:fontFamily="@font/happy_monkey"
         android:gravity="center"
         android:text="@string/tv_PieChart_text"
         android:textAlignment="center"
+        android:textSize="@dimen/et_ts"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +26,7 @@
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/zero"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

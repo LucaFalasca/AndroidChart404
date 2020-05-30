@@ -31,10 +31,10 @@
             <ImageView
                 android:id="@+id/ivChart"
                 android:layout_width="match_parent"
-                android:layout_height="163dp"
-                android:background="#FFFFFF"
-                android:backgroundTint="#FFFFFF"
-                android:foregroundTint="#3A3A3A" />
+                android:layout_height="@dimen/tvChart_h"
+                android:background="@color/white"
+                android:backgroundTint="@color/white"
+                android:foregroundTint="@color/backcard" />
 
             <TextView
                 android:id="@+id/tvChart"

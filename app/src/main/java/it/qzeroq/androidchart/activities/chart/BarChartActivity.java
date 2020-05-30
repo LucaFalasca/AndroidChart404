@@ -123,14 +123,14 @@ public class BarChartActivity extends AppCompatActivity{
 
     private void PersonalizeDataSet(DataSet set) {
         set.setColor(Color.rgb(rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
-        set.setValueTextColor(Color.WHITE);
+        set.setValueTextColor(R.color.white);
     }
 
     private void PersonalizeChart(BarChart chart) {
-        chart.getXAxis().setTextColor(Color.WHITE);
-        chart.getAxisLeft().setTextColor(Color.WHITE);
-        chart.getAxisRight().setTextColor(Color.WHITE);
-        chart.getLegend().setTextColor(Color.WHITE);
+        chart.getXAxis().setTextColor(getColor(R.color.white));
+        chart.getAxisLeft().setTextColor(R.color.white);
+        chart.getAxisRight().setTextColor(R.color.white);
+        chart.getLegend().setTextColor(R.color.white);
 
         chart.setFitBars(true);
         XAxis xAxis = chart.getXAxis();

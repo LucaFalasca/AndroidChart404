@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">AndroidChart404</string>
 
     <string name="tv_LineChart_text">Line Chart</string>
@@ -16,15 +16,22 @@
     <string name="tv_y_axis_string">Y Axis</string>
     <string name="image_description"> Start screen image </string>
 
-    <string name="x_axis">X-Axys values (1 2 3...)</string>
-    <string name="y_axis">Y-Axys values (15 6 7...)</string>
+    <string name="x_axis">X-Axys values (1 2 3…)</string>
+    <string name="y_axis">Y-Axys values (15 6 7…)</string>
     <string name="function"> Function </string>
 
     <string name="slice_name"> Slice name</string>
     <string name="slice_value"> Slice value</string>
     <string name="ex_slice_name"> Category </string>
     <string name="ex_slice_value">18</string>
+
+
     <string name="group_name_string">Group name</string>
     <string name="et_group_string">Group</string>
+    <string name="generate"> Generate</string>
+    <string name="bar_name">BarName1 BarName2 …</string>
+    <string name="bar_value">22 3 4 …</string>
+
+    <string name="deafult" translatable="false">Default</string>
 
 </resources>

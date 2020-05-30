@@ -104,10 +104,10 @@ public class LineChartActivity extends AppCompatActivity {
 
     private void PersonalizeChart(LineChart chart) {
         chart.animateX(1000, Easing.Linear);
-        chart.getXAxis().setTextColor(Color.WHITE);
-        chart.getAxisLeft().setTextColor(Color.WHITE);
-        chart.getAxisRight().setTextColor(Color.WHITE);
-        chart.getLegend().setTextColor(Color.WHITE);
+        chart.getXAxis().setTextColor(R.color.white);
+        chart.getAxisLeft().setTextColor(R.color.white);
+        chart.getAxisRight().setTextColor(R.color.white);
+        chart.getLegend().setTextColor(R.color.white);
         chart.getDescription().setEnabled(false);
     }
 

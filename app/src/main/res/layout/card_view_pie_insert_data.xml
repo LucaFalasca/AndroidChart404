@@ -25,9 +25,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/margin_standard"
                 android:fontFamily="@font/happy_monkey"
+                android:scrollbarSize="@dimen/scrollbar"
                 android:text="@string/slice_name"
+                android:textSize="@dimen/tv_ts"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -45,6 +47,7 @@
                 android:hint="@string/ex_slice_name"
                 android:importantForAutofill="no"
                 android:inputType="textMultiLine"
+                android:textSize="@dimen/et_ts"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -58,6 +61,7 @@
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/happy_monkey"
                 android:text="@string/slice_value"
+                android:textSize="@dimen/tv_ts"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etSliceName" />
 
@@ -73,7 +77,8 @@
                 android:fontFamily="@font/happy_monkey"
                 android:gravity="start|top"
                 android:hint="@string/ex_slice_value"
-                android:inputType="textMultiLine"
+                android:inputType="number"
+                android:textSize="@dimen/et_ts"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
