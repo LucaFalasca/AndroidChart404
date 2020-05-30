@@ -2,7 +2,6 @@
 <resources>
     <dimen name="margin_standard">16dp</dimen>
     <dimen name="et_ts">18sp</dimen>
-    <dimen name="scrollbar">4dp</dimen>
     <dimen name="tv_ts">14sp</dimen>
     <dimen name="widthfunction">209dp</dimen>
     <dimen name="zero">0dp</dimen>
