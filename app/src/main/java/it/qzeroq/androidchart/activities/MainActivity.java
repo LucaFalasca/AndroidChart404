@@ -14,23 +14,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         new Holder();
-        Handler handler=new Handler();
+
+        //splash screen
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent=new Intent(MainActivity.this, SelectionActivity.class);
+                Intent intent = new Intent(MainActivity.this, SelectionActivity.class);
                 startActivity(intent);
                 finish();
             }
         },1000);
     }
 
-    class Holder {
 
-        Holder(){
-            ImageView ivInizio = findViewById(R.id.ivInizio);
-            ivInizio.setImageDrawable(getDrawable(R.drawable.inizio));
+    class Holder {
+        Holder() {
+            ImageView ivStart = findViewById(R.id.ivStart);
+            ivStart.setImageDrawable(getDrawable(R.drawable.start));
        }
     }
 }

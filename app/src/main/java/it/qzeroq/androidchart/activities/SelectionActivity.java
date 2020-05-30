@@ -19,6 +19,7 @@ public class SelectionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
 
+        //list of chart names used to fill the RecyclerView
         ArrayList<String> chartNameList = new ArrayList<>();
         chartNameList.add(getResources().getString(R.string.tv_LineChart_text));
         chartNameList.add(getResources().getString(R.string.tv_BarChart_text));
@@ -32,16 +33,16 @@ public class SelectionActivity extends AppCompatActivity {
 
 
     class Holder {
-
-        Holder(List<String> chartNameList){
+        Holder(List<String> chartNameList) {
             RecyclerView rvSelectionChart = findViewById(R.id.rvSelectionChart);
 
+            //setting GridLayoutManager for the RecyclerView of choosing chart
             RecyclerView.LayoutManager layoutManager = new GridLayoutManager(SelectionActivity.this, 2);
             rvSelectionChart.setLayoutManager(layoutManager);
 
+            //setting ChartAdapter for the RecyclerView of choosing chart
             ChartAdapter adapter = new ChartAdapter(SelectionActivity.this, chartNameList);
             rvSelectionChart.setAdapter(adapter);
-
         }
 
     }

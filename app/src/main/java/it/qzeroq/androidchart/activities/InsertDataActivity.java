@@ -37,13 +37,10 @@ public class InsertDataActivity extends AppCompatActivity {
 
     class Holder implements View.OnClickListener {
 
-        private RecyclerView rvInsertLine;
-        private Button btnGenerate, btnAddCard;
-
         Holder(int id){
-            rvInsertLine = findViewById(R.id.rvInsertLine);
-            btnGenerate = findViewById(R.id.btnGenerate);
-            btnAddCard = findViewById(R.id.btnAddCard);
+            RecyclerView rvInsertLine = findViewById(R.id.rvInsertLine);
+            Button btnGenerate = findViewById(R.id.btnGenerate);
+            Button btnAddCard = findViewById(R.id.btnAddCard);
 
             btnGenerate.setOnClickListener(this);
             btnAddCard.setOnClickListener(this);

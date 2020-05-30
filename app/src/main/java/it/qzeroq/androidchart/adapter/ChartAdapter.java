@@ -32,7 +32,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> impl
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
+        //inflating the layout for choosing the chart
         ConstraintLayout constraintLayout = (ConstraintLayout) LayoutInflater.
                 from(parent.getContext()).inflate(R.layout.card_view_chart_selection, parent, false);
         constraintLayout.setOnClickListener(this);
@@ -43,7 +43,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> impl
 
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
-
+        //filling the RecyclerView with name and image of the chart on the basis of the position
         String name = chartNameList.get(position);
         holder.tvChart.setText(name);
         if (context.getResources().getString(R.string.tv_LineChart_text).equals(name)) {
@@ -80,7 +80,6 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> impl
 
 
     static class Holder extends RecyclerView.ViewHolder {
-
         final TextView tvChart;
         final ImageView ivChart;
 

@@ -70,12 +70,12 @@ public class LineChartActivity extends AppCompatActivity {
         while(values.endsWith(" ")){
             values = values.substring(0, values.length() - 1);
         }
-        values.replace(",", "");
+        values = values.replace(",", "");
 
 
         String[] strings = values.split(" ");
-        for(int i = 0; i < strings.length; i++){
-            list.add(Integer.valueOf(strings[i]));
+        for (String string : strings) {
+            list.add(Integer.valueOf(string));
         }
 
         return list;

@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
@@ -16,6 +15,7 @@ import com.github.mikephil.charting.data.DataSet;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -45,6 +45,8 @@ public class BarChartActivity extends AppCompatActivity{
 
         for(int i = 0; i < numberOfFunction; i++){
             //Rappresenta una singola barra sul grafico
+            assert groups != null;
+            assert yAxises != null;
             BarDataSet set = (BarDataSet) createDataSet(groups[i], formatDataToInteger(yAxises[i]));
 
             //vengono al barData
@@ -53,6 +55,7 @@ public class BarChartActivity extends AppCompatActivity{
 
         holder.barChart.setData(barData);
 
+        assert xAxises != null;
         AddLabels(holder.barChart, xAxises[0]);
         PersonalizeChart(holder.barChart);
 
@@ -76,12 +79,11 @@ public class BarChartActivity extends AppCompatActivity{
         while(values.endsWith(" ")){
             values = values.substring(0, values.length() - 1);
         }
-        values.replace(",", "");
-
+        values = values.replace(",", "");
 
         String[] strings = values.split(" ");
-        for(int i = 0; i < strings.length; i++){
-            list.add(Integer.valueOf(strings[i]));
+        for (String string : strings) {
+            list.add(Integer.valueOf(string));
         }
 
         return list;
@@ -94,13 +96,10 @@ public class BarChartActivity extends AppCompatActivity{
         while(values.endsWith(" ")){
             values = values.substring(0, values.length() - 1);
         }
-        values.replace(",", "");
-
+        values = values.replace(",", "");
 
         String[] strings = values.split(" ");
-        for(int i = 0; i < strings.length; i++){
-            list.add(strings[i]);
-        }
+        Collections.addAll(list, strings);
 
         return list;
     }

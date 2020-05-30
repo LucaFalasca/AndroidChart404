@@ -8,7 +8,7 @@
     tools:context=".activities.MainActivity">
 
     <ImageView
-        android:id="@+id/ivInizio"
+        android:id="@+id/ivStart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/image_description"
@@ -18,5 +18,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/inizio" />
+        app:srcCompat="@drawable/start" />
 </androidx.constraintlayout.widget.ConstraintLayout>
