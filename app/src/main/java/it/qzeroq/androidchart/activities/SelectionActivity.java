@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -38,8 +39,12 @@ public class SelectionActivity extends AppCompatActivity {
             RecyclerView rvSelectionChart = findViewById(R.id.rvSelectionChart);
 
             //setting GridLayoutManager for the RecyclerView of choosing chart
-            RecyclerView.LayoutManager layoutManager = new GridLayoutManager(SelectionActivity.this, 2);
-            rvSelectionChart.setLayoutManager(layoutManager);
+            if(getApplicationContext().getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
+                rvSelectionChart.setLayoutManager(new GridLayoutManager(SelectionActivity.this, 2));
+            }
+            else{
+                rvSelectionChart.setLayoutManager(new GridLayoutManager(SelectionActivity.this, 3));
+            }
 
             //setting ChartAdapter for the RecyclerView of choosing chart
             ChartAdapter adapter = new ChartAdapter(SelectionActivity.this, chartNameList);
