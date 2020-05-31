@@ -69,13 +69,16 @@ public class LineChartActivity extends AppCompatActivity {
         holder.lineChart.invalidate();
     }
 
-    private String formatString(String string){
-        while(string.contains("  ")){
+
+    private String formatString(String string) {
+        //elimination of any multiple space between one data and another
+        while(string.contains("  ")) {
             string = string.replace("  ", " ");
         }
         string = string.replace(" ", ",");
         return string;
     }
+
 
     private List<Float> formatDataToFloat(String values) {
         List<Float> list = new ArrayList<>();

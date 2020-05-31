@@ -57,8 +57,10 @@ public class BarChartActivity extends AppCompatActivity {
             barData.addDataSet(set);
         }
 
+        float gropuSpace = 0.1f;
+        float barSpace = 0.02f;
         barData.setBarWidth(0.45f);
-        barData.groupBars(0, 0.06f, 0.02f);
+        barData.groupBars(0, gropuSpace, barSpace);
 
         //adding data to the BarChart
         holder.barChart.setData(barData);
@@ -87,15 +89,18 @@ public class BarChartActivity extends AppCompatActivity {
         });
     }
 
-    private String formatString(String string){
-        while(string.contains("  ")){
+
+    private String formatString(String string) {
+        //elimination of any multiple space between one data and another
+        while(string.contains("  ")) {
             string = string.replace("  ", " ");
         }
         string = string.replace(" ", ",");
         return string;
     }
 
-    private List<String> formatDataToString(String values){
+
+    private List<String> formatDataToString(String values) {
         List<String> list = new ArrayList<>();
 
         //data format controls
@@ -168,7 +173,11 @@ public class BarChartActivity extends AppCompatActivity {
         //setting the axises range
         chart.getAxisLeft().setAxisMinimum(0);
         chart.getXAxis().setAxisMinimum(-0.5f);
-        chart.getXAxis().setAxisMaximum(chart.getXAxis().getAxisMaximum());
+
+        //chart.setFitBars(true);  -------------------------- ----------
+        chart.setDragEnabled(true);
+        chart.setVisibleXRangeMaximum(4);
+
 
         //disabling description of the chart
         chart.getDescription().setEnabled(false);
