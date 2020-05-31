@@ -61,10 +61,11 @@ public class LineChartActivity extends AppCompatActivity {
 
         //adding data to the LineChart
         holder.lineChart.setData(lineData);
-        holder.lineChart.invalidate();
 
         //customization of the LineChart
         PersonalizeChart(holder.lineChart);
+
+        holder.lineChart.invalidate();
     }
 
 

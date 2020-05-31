@@ -56,10 +56,11 @@ public class PieChartActivity extends AppCompatActivity {
 
         //adding data to the PieChart
         holder.pieChart.setData(data);
-        holder.pieChart.invalidate();
 
         //customization of the PieChart
         PersonalizeChart(holder.pieChart);
+
+        holder.pieChart.invalidate();
     }
 
 
