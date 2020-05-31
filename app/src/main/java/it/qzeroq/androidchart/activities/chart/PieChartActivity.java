@@ -14,6 +14,7 @@ import com.github.mikephil.charting.data.PieEntry;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import it.qzeroq.androidchart.R;
 
@@ -32,16 +33,18 @@ public class PieChartActivity extends AppCompatActivity {
         String[] values = intentData.getStringArrayExtra("values");
         int n = intentData.getIntExtra("n", 0);
 
+
+
         List<PieEntry> entries = new ArrayList<>();
         for(int i = 0; i < n; i++){
-            assert values != null;
-            assert values[i] != null;
-            assert names != null;
-            assert names[i] != null;
+            assert Objects.requireNonNull(values)[i] != null;
+            assert Objects.requireNonNull(names)[i] != null;
             entries.add(new PieEntry(Float.parseFloat(values[i]), names[i]));
         }
 
         PieDataSet set = new PieDataSet(entries, "");
+
+
         PersonalizeDataSet(set);
 
         PieData data = new PieData(set);
@@ -68,7 +71,7 @@ public class PieChartActivity extends AppCompatActivity {
     private void PersonalizeDataSet(PieDataSet set){
         set.setColors(addColor());
         set.setValueTextColor(Color.WHITE);
-        set.setValueTextSize(15);
+        set.setValueTextSize(getResources().getDimension(R.dimen.legend));
     }
 
     private void PersonalizeChart(PieChart chart) {

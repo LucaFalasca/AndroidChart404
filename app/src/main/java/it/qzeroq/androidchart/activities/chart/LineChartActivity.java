@@ -17,6 +17,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 import it.qzeroq.androidchart.R;
@@ -44,9 +45,9 @@ public class LineChartActivity extends AppCompatActivity {
         List<ILineDataSet> setList = new ArrayList<>();
 
         for(int i = 0; i < numberOfFunction; i++){
-            assert names != null;
-            assert yAxises != null;
-            assert xAxises != null;
+            assert Objects.requireNonNull(names)[i] != null;
+            assert Objects.requireNonNull(yAxises)[i] != null;
+            assert Objects.requireNonNull(xAxises)[i] != null;
 
             //Rappresenta una singola funzione sul grafico
             LineDataSet set = (LineDataSet) createDataSet(names[i], formatData(xAxises[i]), formatData(yAxises[i]));

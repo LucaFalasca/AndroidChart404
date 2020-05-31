@@ -12,7 +12,6 @@
         android:layout_height="@dimen/height"
         android:fontFamily="@font/happy_monkey"
         android:gravity="center"
-        android:scrollbarSize="@dimen/scrollbar"
         android:text="@string/tv_BarChart_text"
         android:textSize="@dimen/et_ts"
         android:textStyle="bold"

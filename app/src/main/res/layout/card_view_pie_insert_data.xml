@@ -27,7 +27,6 @@
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginTop="@dimen/margin_standard"
                 android:fontFamily="@font/happy_monkey"
-                android:scrollbarSize="@dimen/scrollbar"
                 android:text="@string/slice_name"
                 android:textSize="@dimen/tv_ts"
                 app:layout_constraintStart_toStartOf="parent"
