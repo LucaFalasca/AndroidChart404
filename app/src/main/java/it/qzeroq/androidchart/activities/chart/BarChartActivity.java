@@ -12,6 +12,7 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.DataSet;
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 
 import java.util.ArrayList;
@@ -25,6 +26,8 @@ public class BarChartActivity extends AppCompatActivity {
 
     Holder holder;
     Random rnd;
+    int numberOfGroups;
+    float barWidth , groupSpace, barSpace;
     // ------- INSERIRE GESTIONE ERRORI DI INSERIMENTO DATI DA PARTE DELL'UTENTE --------
 
     @Override
@@ -41,7 +44,7 @@ public class BarChartActivity extends AppCompatActivity {
         String[] groups = intentData.getStringArrayExtra("groups");
         String[] xAxises = intentData.getStringArrayExtra("xAxises");
         String[] yAxises = intentData.getStringArrayExtra("yAxises");
-        int numberOfGroups = intentData.getIntExtra("n", 1);
+        numberOfGroups = intentData.getIntExtra("n", 1);
 
         BarData barData = new BarData();
 
@@ -57,34 +60,30 @@ public class BarChartActivity extends AppCompatActivity {
             barData.addDataSet(set);
         }
 
-        barData.setBarWidth(0.45f);
-        barData.groupBars(0, 0.06f, 0.02f);
+        //customization of BarData
+        PersonalizeDataChart(barData);
 
         //adding data to the BarChart
         holder.barChart.setData(barData);
         holder.barChart.invalidate();
 
-        //adding labels to the x-axis
-        assert xAxises != null;
-        AddLabels(holder.barChart, xAxises[0]);
+
 
         //customization of the BarChart
         PersonalizeChart(holder.barChart);
+
+        //adding labels to the x-axis
+        assert xAxises != null;
+        AddLabels(holder.barChart, xAxises[0]);
 
         holder.barChart.invalidate();
     }
 
 
-    private void AddLabels(BarChart barChart, String name) {
-        final List<String> labels = formatDataToString(name);
 
-        //setting ValueFormatter for the x-axis
-        barChart.getXAxis().setValueFormatter(new ValueFormatter() {
-            @Override
-            public String getFormattedValue(float value) {
-                return labels.get((int) value);
-            }
-        });
+
+    private void AddLabels(BarChart barChart, String name) {
+        barChart.getXAxis().setValueFormatter(new IndexAxisValueFormatter(formatDataToString(name)));
     }
 
     private String formatString(String string){
@@ -149,6 +148,19 @@ public class BarChartActivity extends AppCompatActivity {
         set.setValueTextColor(getColor(R.color.colorTextChart));
     }
 
+    private void PersonalizeDataChart(BarData barData) {
+        groupSpace = 0.1f;
+        barWidth = 0.35f;
+        barSpace = 0.1f;
+        barData.setBarWidth(barWidth);
+
+        if(numberOfGroups > 1)
+            barData.groupBars(0, groupSpace, barSpace);
+        else{
+            //boh
+        }
+
+    }
 
     private void PersonalizeChart(BarChart chart) {
         //setting colors
@@ -165,13 +177,22 @@ public class BarChartActivity extends AppCompatActivity {
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
         xAxis.setGranularity(1);
 
+        xAxis.setGranularityEnabled(true);
+        xAxis.setCenterAxisLabels(true);
+        chart.getAxisLeft().setGranularity(1f);
+        chart.getAxisRight().setDrawLabels(false);
+
         //setting the axises range
         chart.getAxisLeft().setAxisMinimum(0);
-        chart.getXAxis().setAxisMinimum(-0.5f);
-        chart.getXAxis().setAxisMaximum(chart.getXAxis().getAxisMaximum());
+        chart.getXAxis().setAxisMinimum(0);
+        int numberOfEntry = chart.getBarData().getDataSets().get(0).getEntryCount();
+        chart.getXAxis().setAxisMaximum(numberOfEntry);
+
 
         //disabling description of the chart
         chart.getDescription().setEnabled(false);
+
+        chart.setFitBars(true);
     }
 
 
