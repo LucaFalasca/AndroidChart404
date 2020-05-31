@@ -27,6 +27,6 @@
     <string name="group_name_string">Nome Gruppo</string>
     <string name="et_group_string">Gruppo</string>
     <string name="generate">Generazione</string>
-    <string name="bar_name">Nome colonna 1, Nome colonna 2 ...</string>
-    <string name="bar_value">22 3 4...</string>
+    <string name="bar_name">Nome colonna 1, Nome colonna 2 …</string>
+    <string name="bar_value">22 3 4…</string>
 </resources>

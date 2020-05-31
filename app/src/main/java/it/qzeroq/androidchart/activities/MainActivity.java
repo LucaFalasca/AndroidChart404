@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         new Holder();
 
-        //splash screen
+        //setting splash screen
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
     class Holder {
         Holder() {
+            //attaching the ImageView by its id and setting the splash screen image
             ImageView ivStart = findViewById(R.id.ivStart);
             ivStart.setImageDrawable(getDrawable(R.drawable.start));
        }

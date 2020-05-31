@@ -32,11 +32,13 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //inflating the layout for insertion of the BarChart data
         ConstraintLayout constraintLayout = (ConstraintLayout) LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.card_view_bar_insert_data, parent, false);
 
         return new Holder(constraintLayout);
     }
+
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -45,17 +47,22 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
         holder.etNameLine.setText("Group " + (position + 1));
     }
 
+
     @Override
     public int getItemCount() {
         return c;
     }
 
-    public void addCard(){
+
+    public void addCard() {
+        //item counter increment and adding a CardView for the insertion of BarChart data
         c++;
         notifyItemInserted(c);
     }
 
-    public String[] getNames(){
+
+    public String[] getNames() {
+        //getting group names from holders and putting them into an array of strings
         String[] values = new String[c];
         for(int i = 0; i < c; i++){
             values[i] = holders.get(i).etNameLine.getText().toString();
@@ -63,7 +70,9 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
         return values;
     }
 
-    public String[] getXAxis(){
+
+    public String[] getXAxis() {
+        //getting x-values of the group and putting them into an array of strings
         String[] values = new String[c];
         for(int i = 0; i < c; i++){
             values[i] = holders.get(i).etXAxis.getText().toString();
@@ -71,13 +80,16 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
         return values;
     }
 
-    public String[] getYAxis(){
+
+    public String[] getYAxis() {
+        //getting y-values of the group and putting them into an array of strings
         String[] values = new String[c];
         for(int i = 0; i < c; i++){
             values[i] = holders.get(i).etYAxis.getText().toString();
         }
         return values;
     }
+
 
     static class Holder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener, TextWatcher {
 
@@ -87,6 +99,7 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
 
         Holder(@NonNull View itemView) {
             super(itemView);
+            //attaching views by their id
             tvNameLine = itemView.findViewById(R.id.tvGroupName);
             tvXAxis = itemView.findViewById(R.id.tvSliceName);
             tvYAxis = itemView.findViewById(R.id.tvValueSlice);
@@ -94,58 +107,70 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
             etXAxis = itemView.findViewById(R.id.etSliceName);
             etYAxis = itemView.findViewById(R.id.etValueSlice);
             cbDefaultValues = itemView.findViewById(R.id.cbDefaultValues);
+
+            //setting of listeners
             cbDefaultValues.setOnCheckedChangeListener(this);
             etYAxis.addTextChangedListener(this);
         }
 
+
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            if(isChecked){
+            if(isChecked) {
+                //self-generated x-values in ascending order if the CompoundButton is checked
                 int n = countNumbers(etYAxis.getText().toString());
                 StringBuilder numbers = new StringBuilder();
-                for(int i = 0; i < n; i++){
+                for(int i = 0; i < n; i++) {
                     numbers.append(i + 1).append(" ");
                 }
+                //setting the self-generated x-values and disabling changes on the EditText etXAxis
                 etXAxis.setText(numbers.toString());
                 etXAxis.setEnabled(false);
             }
-            else{
+            else {
+                //enabling changes on the EditText etXAxis
                 etXAxis.setText("");
                 etXAxis.setEnabled(true);
             }
         }
 
+
         private int countNumbers(String text) {
+            //count of how many data are entered for the y-axis
             int n = 0;
-            if(text.length() == 0){
+            if(text.length() == 0) {
                 return 0;
             }
-            if(Character.isDigit(text.charAt(0))){
+            if(Character.isDigit(text.charAt(0))) {
                 n++;
             }
-            for(int i = 0; i < text.length(); i++){
-                if(text.charAt(i) == ' '){
+            for(int i = 0; i < text.length(); i++) {
+                if(text.charAt(i) == ' ') {
                     n++;
                 }
             }
-            if(text.endsWith(" ")){
+            if(text.endsWith(" ")) {
                 n--;
             }
             return n;
         }
+
 
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
         }
 
+
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
 
         }
 
+
         @Override
         public void afterTextChanged(Editable s) {
+            //check if the Button cbDefaultValues was changed
             if(cbDefaultValues.isChecked()) {
                 onCheckedChanged(cbDefaultValues, true);
             }

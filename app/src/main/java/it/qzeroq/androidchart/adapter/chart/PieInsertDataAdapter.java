@@ -25,14 +25,17 @@ public class PieInsertDataAdapter extends RecyclerView.Adapter<PieInsertDataAdap
         holders = new ArrayList<>();
     }
 
+
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        //inflating the layout for insertion of the PieChart data
         ConstraintLayout constraintLayout = (ConstraintLayout) LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.card_view_pie_insert_data, parent, false);
 
         return new Holder(constraintLayout);
     }
+
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -41,33 +44,41 @@ public class PieInsertDataAdapter extends RecyclerView.Adapter<PieInsertDataAdap
         holder.etSliceName.setText("Category " + (position + 1));
     }
 
+
     @Override
     public int getItemCount() {
         return c;
     }
 
-    public void addCard(){
+
+    public void addCard() {
+        //item counter increment and adding a CardView for the insertion of PieChart data
         c++;
         notifyItemInserted(c);
     }
 
-    public String[] getNames(){
+
+    public String[] getNames() {
+        //getting slice names from holders and putting them into an array of strings
         String[] values = new String[c];
-        for(int i = 0; i < c; i++){
+        for(int i = 0; i < c; i++) {
             values[i] = holders.get(i).etSliceName.getText().toString();
         }
         return values;
     }
 
-    public String[] getvaluesSlice(){
+
+    public String[] getvaluesSlice() {
+        //getting slices values and putting them into an array of strings
         String[] values = new String[c];
-        for(int i = 0; i < c; i++){
+        for(int i = 0; i < c; i++) {
             values[i] = holders.get(i).etSliveValue.getText().toString();
         }
         return values;
     }
 
-    static class Holder extends RecyclerView.ViewHolder{
+
+    static class Holder extends RecyclerView.ViewHolder {
 
         final TextView tvSliceName, tvSliceValue;
         final EditText etSliceName, etSliveValue;
@@ -75,13 +86,11 @@ public class PieInsertDataAdapter extends RecyclerView.Adapter<PieInsertDataAdap
 
         Holder(@NonNull View itemView) {
             super(itemView);
-
+            //attaching views by their id
             tvSliceName = itemView.findViewById(R.id.tvSliceName);
             tvSliceValue = itemView.findViewById(R.id.tvValueSlice);
             etSliceName = itemView.findViewById(R.id.etSliceName);
             etSliveValue = itemView.findViewById(R.id.etValueSlice);
-
         }
-
     }
 }

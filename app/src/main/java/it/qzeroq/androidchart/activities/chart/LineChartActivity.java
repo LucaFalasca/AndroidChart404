@@ -30,94 +30,112 @@ public class LineChartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_line_chart);
+
         holder = new Holder();
         rnd = new Random();
 
+        //getting the intent and its data
         Intent intentData = getIntent();
         String[] names = intentData.getStringArrayExtra("names");
         String[] xAxises = intentData.getStringArrayExtra("xAxises");
         String[] yAxises = intentData.getStringArrayExtra("yAxises");
         int numberOfFunction = intentData.getIntExtra("n", 1);
 
-        //Lista delle funzioni da inserire nel grafico
+        //creating the functions list of the LineChart
         List<ILineDataSet> setList = new ArrayList<>();
-
-        for(int i = 0; i < numberOfFunction; i++){
+        for(int i = 0; i < numberOfFunction; i++) {
             assert names != null;
             assert yAxises != null;
             assert xAxises != null;
 
-            //Rappresenta una singola funzione sul grafico
+            //each set is a function on the LineChart
             LineDataSet set = (LineDataSet) createDataSet(names[i], formatData(xAxises[i]), formatData(yAxises[i]));
 
-            //vengono aggiunti in una lista
+            //each set is added to the same list
             setList.add(set);
         }
 
         LineData lineData = new LineData(setList);
 
+        //adding data to the LineChart
         holder.lineChart.setData(lineData);
         holder.lineChart.invalidate();
 
+        //customization of the LineChart
         PersonalizeChart(holder.lineChart);
     }
 
-    private List<Integer> formatData(String values) {
-        List<Integer> list = new ArrayList<>();
 
-        //controlli
-        while(values.endsWith(" ")){
+    private List<Float> formatData(String values) {
+        List<Float> list = new ArrayList<>();
+
+        //data format controls
+        while(values.endsWith(" ")) {
             values = values.substring(0, values.length() - 1);
         }
-        values = values.replace(",", "");
+        values = values.replace(",", " ");
 
-
+        //conversion of data from String to Float
         String[] strings = values.split(" ");
         for (String string : strings) {
-            list.add(Integer.valueOf(string));
+            list.add(Float.valueOf(string));
         }
 
         return list;
     }
 
-    private DataSet createDataSet(String name, List<Integer> xAxise, List<Integer> yAxise) {
-        int numberOfEntry = Math.min(xAxise.size(), yAxise.size());
 
+    private DataSet createDataSet(String name, List<Float> xAxis, List<Float> yAxis) {
+        int numberOfEntry = Math.min(xAxis.size(), yAxis.size());
+
+        //creation of Entry and list of Entry
         List<Entry> entries = new ArrayList<>();
         for(int i = 0; i < numberOfEntry; i++){
-            entries.add(new Entry(xAxise.get(i), yAxise.get(i)));
+            entries.add(new Entry(xAxis.get(i), yAxis.get(i)));
         }
 
+        //dataset creation
         LineDataSet set = new LineDataSet(entries, name);
 
-        //Personalizzazione del data set
+        //customization of the DataSet
         PersonalizeDataSet(set);
 
         return set;
     }
+
 
     private void PersonalizeDataSet(DataSet set) {
         set.setColor(Color.rgb(rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
         set.setValueTextColor(Color.WHITE);
     }
 
+
     private void PersonalizeChart(LineChart chart) {
+        //setting animation on the chart
         chart.animateX(1000, Easing.Linear);
-        chart.getXAxis().setTextColor(R.color.white);
+
+        //customization of x-axis position
+        chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
+
+        //setting colors
+        chart.getXAxis().setTextColor(getColor(R.color.white));
         chart.getAxisLeft().setTextColor(R.color.white);
         chart.getAxisRight().setTextColor(R.color.white);
         chart.getLegend().setTextColor(R.color.white);
+
+        //disabling description of the chart
         chart.getDescription().setEnabled(false);
     }
 
-    class Holder{
 
+    class Holder {
         private LineChart lineChart;
 
-        Holder(){
+        Holder() {
+            //attaching the LineChart by its id
             lineChart = findViewById(R.id.lineChart);
-            lineChart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
         }
     }
 }

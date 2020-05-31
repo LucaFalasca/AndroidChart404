@@ -70,11 +70,12 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> impl
 
     @Override
     public void onClick(View v) {
-
+        //creating the intent and putting into it the position of the chart in the RecyclerView
         int position = ((RecyclerView) v.getParent()).getChildAdapterPosition(v);
         Intent intent = new Intent(context, InsertDataActivity.class);
         intent.putExtra("value", position);
 
+        //starting the activity of the clicked chart with the created intent
         context.startActivity(intent);
     }
 
@@ -85,6 +86,7 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> impl
 
         Holder(@NonNull View itemView) {
             super(itemView);
+            //attaching the views by their id
             tvChart = itemView.findViewById(R.id.tvChart);
             ivChart = itemView.findViewById(R.id.ivChart);
         }

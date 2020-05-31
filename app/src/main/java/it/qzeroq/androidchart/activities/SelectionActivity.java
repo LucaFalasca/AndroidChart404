@@ -34,6 +34,7 @@ public class SelectionActivity extends AppCompatActivity {
 
     class Holder {
         Holder(List<String> chartNameList) {
+            //attaching the RecyclerView by its id
             RecyclerView rvSelectionChart = findViewById(R.id.rvSelectionChart);
 
             //setting GridLayoutManager for the RecyclerView of choosing chart
