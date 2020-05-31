@@ -71,18 +71,18 @@
                 android:layout_marginTop="@dimen/margin_standard"
                 android:layout_marginEnd="@dimen/margin_standard"
                 android:layout_marginBottom="@dimen/margin_standard"
+                android:autofillHints=""
                 android:ems="10"
                 android:fontFamily="@font/happy_monkey"
                 android:gravity="start|top"
                 android:hint="@string/ex_slice_value"
-                android:inputType="number"
+                android:inputType="textMultiLine"
                 android:textSize="@dimen/et_ts"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvValueSlice"
-                android:autofillHints="" />
+                app:layout_constraintTop_toBottomOf="@+id/tvValueSlice" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

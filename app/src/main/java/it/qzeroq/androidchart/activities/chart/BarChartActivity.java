@@ -141,16 +141,16 @@ public class BarChartActivity extends AppCompatActivity {
 
     private void PersonalizeDataSet(DataSet set) {
         set.setColor(Color.rgb(rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
-        set.setValueTextColor(R.color.white);
+        set.setValueTextColor(getColor(R.color.white));
     }
 
 
     private void PersonalizeChart(BarChart chart) {
         //setting colors
         chart.getXAxis().setTextColor(getColor(R.color.white));
-        chart.getAxisLeft().setTextColor(R.color.white);
-        chart.getAxisRight().setTextColor(R.color.white);
-        chart.getLegend().setTextColor(R.color.white);
+        chart.getAxisLeft().setTextColor(getColor(R.color.white));
+        chart.getAxisRight().setTextColor(getColor(R.color.white));
+        chart.getLegend().setTextColor(getColor(R.color.white));
 
         //fitting the bars in order to properlyPAh s show them
         chart.setFitBars(true);

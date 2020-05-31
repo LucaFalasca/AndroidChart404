@@ -110,7 +110,7 @@ public class LineChartActivity extends AppCompatActivity {
 
     private void PersonalizeDataSet(DataSet set) {
         set.setColor(Color.rgb(rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
-        set.setValueTextColor(Color.WHITE);
+        set.setValueTextColor(getColor(R.color.white));
     }
 
 
@@ -123,9 +123,9 @@ public class LineChartActivity extends AppCompatActivity {
 
         //setting colors
         chart.getXAxis().setTextColor(getColor(R.color.white));
-        chart.getAxisLeft().setTextColor(R.color.white);
-        chart.getAxisRight().setTextColor(R.color.white);
-        chart.getLegend().setTextColor(R.color.white);
+        chart.getAxisLeft().setTextColor(getColor(R.color.white));
+        chart.getAxisRight().setTextColor(getColor(R.color.white));
+        chart.getLegend().setTextColor(getColor(R.color.white));
 
         //disabling description of the chart
         chart.getDescription().setEnabled(false);
