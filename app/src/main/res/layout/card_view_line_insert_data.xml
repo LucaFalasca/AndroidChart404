@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -26,7 +25,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
                 android:fontFamily="@font/happy_monkey"
-                android:scrollbarSize="@dimen/scrollbar"
                 android:text="@string/tv_name_line_string"
                 android:textSize="@dimen/tv_ts"
                 app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +42,6 @@
                 android:fontFamily="@font/happy_monkey"
                 android:hint="@string/function"
                 android:inputType="textPersonName"
-                android:scrollbarSize="@dimen/scrollbar"
                 android:textSize="@dimen/et_ts"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -58,7 +55,6 @@
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginTop="@dimen/margin_standard"
                 android:fontFamily="@font/happy_monkey"
-                android:scrollbarSize="@dimen/scrollbar"
                 android:text="@string/tv_x_axis_string"
                 android:textSize="@dimen/tv_ts"
                 app:layout_constraintStart_toStartOf="parent"
@@ -78,7 +74,6 @@
                 android:hint="@string/x_axis"
                 android:importantForAutofill="no"
                 android:inputType="number"
-                android:scrollbarSize="@dimen/scrollbar"
                 android:textSize="@dimen/et_ts"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -92,7 +87,6 @@
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginTop="@dimen/margin_standard"
                 android:fontFamily="@font/happy_monkey"
-                android:scrollbarSize="@dimen/scrollbar"
                 android:text="@string/tv_y_axis_string"
                 android:textSize="@dimen/tv_ts"
                 app:layout_constraintStart_toStartOf="parent"
@@ -111,13 +105,13 @@
                 android:gravity="start|top"
                 android:hint="@string/y_axis"
                 android:inputType="number"
-                android:scrollbarSize="@dimen/scrollbar"
                 android:textSize="@dimen/et_ts"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvValueSlice" />
+                app:layout_constraintTop_toBottomOf="@+id/tvValueSlice"
+                android:autofillHints="" />
 
             <CheckBox
                 android:id="@+id/cbDefaultValues"

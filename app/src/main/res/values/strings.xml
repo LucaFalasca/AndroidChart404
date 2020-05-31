@@ -33,5 +33,7 @@
     <string name="bar_value">22 3 4 …</string>
 
     <string name="deafult" translatable="false">Default</string>
+    <string name="content_image_chart">ImageChart</string>
+    <string name="chart_type_default_string">Chart Type</string>
 
 </resources>
