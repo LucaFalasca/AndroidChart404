@@ -84,7 +84,7 @@ public class LineChartActivity extends AppCompatActivity {
         values = formatString(values);
 
         //conversion of data from String to Float
-        String[] strings = values.split(" ");
+        String[] strings = values.split(",");
         for (String string : strings) {
             list.add(Float.valueOf(string));
         }
