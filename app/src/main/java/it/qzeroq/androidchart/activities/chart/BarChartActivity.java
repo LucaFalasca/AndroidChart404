@@ -156,9 +156,6 @@ public class BarChartActivity extends AppCompatActivity {
 
         if(numberOfGroups > 1)
             barData.groupBars(0, groupSpace, barSpace);
-        else{
-            //boh
-        }
 
     }
 
@@ -184,10 +181,12 @@ public class BarChartActivity extends AppCompatActivity {
 
         //setting the axises range
         chart.getAxisLeft().setAxisMinimum(0);
-        chart.getXAxis().setAxisMinimum(0);
         int numberOfEntry = chart.getBarData().getDataSets().get(0).getEntryCount();
+        if(numberOfGroups == 1) {
+            chart.getXAxis().setAxisMinimum(-0.5f);
+            xAxis.setCenterAxisLabels(false);
+        }
         chart.getXAxis().setAxisMaximum(numberOfEntry);
-
 
         //disabling description of the chart
         chart.getDescription().setEnabled(false);
