@@ -51,7 +51,7 @@ public class LineChartActivity extends AppCompatActivity {
             assert xAxises != null;
 
             //each set is a function on the LineChart
-            LineDataSet set = (LineDataSet) createDataSet(names[i], formatData(xAxises[i]), formatData(yAxises[i]));
+            LineDataSet set = (LineDataSet) createDataSet(names[i], formatDataToFloat(xAxises[i]), formatDataToFloat(yAxises[i]));
 
             //each set is added to the same list
             setList.add(set);
@@ -69,15 +69,19 @@ public class LineChartActivity extends AppCompatActivity {
         holder.lineChart.invalidate();
     }
 
+    private String formatString(String string){
+        while(string.contains("  ")){
+            string = string.replace("  ", " ");
+        }
+        string = string.replace(" ", ",");
+        return string;
+    }
 
-    private List<Float> formatData(String values) {
+    private List<Float> formatDataToFloat(String values) {
         List<Float> list = new ArrayList<>();
 
         //data format controls
-        while(values.endsWith(" ")) {
-            values = values.substring(0, values.length() - 1);
-        }
-        values = values.replace(",", " ");
+        values = formatString(values);
 
         //conversion of data from String to Float
         String[] strings = values.split(" ");
@@ -110,7 +114,7 @@ public class LineChartActivity extends AppCompatActivity {
 
     private void PersonalizeDataSet(DataSet set) {
         set.setColor(Color.rgb(rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
-        set.setValueTextColor(getColor(R.color.white));
+        set.setValueTextColor(getColor(R.color.colorTextChart));
     }
 
 
@@ -122,10 +126,10 @@ public class LineChartActivity extends AppCompatActivity {
         chart.getXAxis().setPosition(XAxis.XAxisPosition.BOTTOM);
 
         //setting colors
-        chart.getXAxis().setTextColor(getColor(R.color.white));
-        chart.getAxisLeft().setTextColor(getColor(R.color.white));
-        chart.getAxisRight().setTextColor(getColor(R.color.white));
-        chart.getLegend().setTextColor(getColor(R.color.white));
+        chart.getXAxis().setTextColor(getColor(R.color.colorTextChart));
+        chart.getAxisLeft().setTextColor(getColor(R.color.colorTextChart));
+        chart.getAxisRight().setTextColor(getColor(R.color.colorTextChart));
+        chart.getLegend().setTextColor(getColor(R.color.colorTextChart));
 
         //disabling description of the chart
         chart.getDescription().setEnabled(false);

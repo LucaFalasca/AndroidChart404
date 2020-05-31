@@ -51,7 +51,7 @@ public class BarChartActivity extends AppCompatActivity {
             assert yAxises != null;
 
             //each set is a bar on the BarChart
-            BarDataSet set = (BarDataSet) createDataSet(groups[i], formatDataToInteger(yAxises[i]));
+            BarDataSet set = (BarDataSet) createDataSet(groups[i], formatDataToFloat(yAxises[i]));
 
             //each set is added to the BarData
             barData.addDataSet(set);
@@ -83,32 +83,33 @@ public class BarChartActivity extends AppCompatActivity {
         });
     }
 
+    private String formatString(String string){
+        while(string.contains("  ")){
+            string = string.replace("  ", " ");
+        }
+        string = string.replace(" ", ",");
+        return string;
+    }
 
     private List<String> formatDataToString(String values){
         List<String> list = new ArrayList<>();
 
         //data format controls
-        while(values.endsWith(" ")){
-            values = values.substring(0, values.length() - 1);
-        }
-        values = values.replace(",", " ");
+        values = formatString(values);
 
         //adding single strings to a list of strings
-        String[] strings = values.split(" ");
+        String[] strings = values.split(",");
         Collections.addAll(list, strings);
 
         return list;
     }
 
 
-    private List<Float> formatDataToInteger(String values) {
+    private List<Float> formatDataToFloat(String values) {
         List<Float> list = new ArrayList<>();
 
         //data format controls
-        while(values.endsWith(" ")){
-            values = values.substring(0, values.length() - 1);
-        }
-        values = values.replace(",", " ");
+        values = formatString(values);
 
         //conversion of data from String to Float
         String[] strings = values.split(" ");
@@ -141,16 +142,16 @@ public class BarChartActivity extends AppCompatActivity {
 
     private void PersonalizeDataSet(DataSet set) {
         set.setColor(Color.rgb(rnd.nextInt(255), rnd.nextInt(255), rnd.nextInt(255)));
-        set.setValueTextColor(getColor(R.color.white));
+        set.setValueTextColor(getColor(R.color.colorTextChart));
     }
 
 
     private void PersonalizeChart(BarChart chart) {
         //setting colors
-        chart.getXAxis().setTextColor(getColor(R.color.white));
-        chart.getAxisLeft().setTextColor(getColor(R.color.white));
-        chart.getAxisRight().setTextColor(getColor(R.color.white));
-        chart.getLegend().setTextColor(getColor(R.color.white));
+        chart.getXAxis().setTextColor(getColor(R.color.colorTextChart));
+        chart.getAxisLeft().setTextColor(getColor(R.color.colorTextChart));
+        chart.getAxisRight().setTextColor(getColor(R.color.colorTextChart));
+        chart.getLegend().setTextColor(getColor(R.color.colorTextChart));
 
         //fitting the bars in order to properlyPAh s show them
         chart.setFitBars(true);
