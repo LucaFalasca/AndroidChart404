@@ -56,6 +56,7 @@ public class PieChartActivity extends AppCompatActivity {
 
         //adding data to the PieChart
         holder.pieChart.setData(data);
+        holder.pieChart.invalidate();
 
         //customization of the PieChart
         PersonalizeChart(holder.pieChart);
@@ -80,7 +81,7 @@ public class PieChartActivity extends AppCompatActivity {
 
     private void PersonalizeDataSet(PieDataSet set) {
         set.setColors(addColor());
-        set.setValueTextColor(Color.WHITE);
+        set.setValueTextColor(getColor(R.color.white));
         set.setValueTextSize(15);
     }
 
@@ -95,8 +96,8 @@ public class PieChartActivity extends AppCompatActivity {
         legend.setHorizontalAlignment(Legend.LegendHorizontalAlignment.RIGHT);
         legend.setOrientation(Legend.LegendOrientation.VERTICAL);
         legend.setFormSize(getResources().getDimension(R.dimen.legend));
-        legend.setTextSize(getResources().getDimension(R.dimen.legend));
-        legend.setTextColor(Color.WHITE);
+        legend.setTextSize(getResources().getDimension(R.dimen.legend_text));
+        legend.setTextColor(getColor(R.color.white));
 
         //disabling description of the chart
         chart.getDescription().setEnabled(false);

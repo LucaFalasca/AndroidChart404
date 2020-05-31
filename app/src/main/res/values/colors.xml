@@ -6,8 +6,8 @@
     <color name="Color4">#d6d420</color>
     <color name="Color5">#a411b1</color>
     <color name="background">#303030</color>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorPrimary">#A68FBF</color>
+    <color name="colorPrimaryDark">#131A7C</color>
     <color name="colorAccent">#000000</color>
     <color name="button">#982F2F</color>
     <color name="white">#FFFFFF</color>

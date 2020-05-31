@@ -57,8 +57,12 @@ public class BarChartActivity extends AppCompatActivity {
             barData.addDataSet(set);
         }
 
+        barData.setBarWidth(0.45f);
+        barData.groupBars(0, 0.06f, 0.02f);
+
         //adding data to the BarChart
         holder.barChart.setData(barData);
+        holder.barChart.invalidate();
 
         //adding labels to the x-axis
         assert xAxises != null;
