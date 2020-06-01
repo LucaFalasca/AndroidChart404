@@ -1,5 +1,6 @@
 package it.qzeroq.androidchart.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -126,4 +127,13 @@ public class InsertDataActivity extends AppCompatActivity {
         }
     }
 
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt("id", idGraph);
+        outState.putString("etInput", holder.etInput.getText().toString());
+
+    }
 }

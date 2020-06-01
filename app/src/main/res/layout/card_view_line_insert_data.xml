@@ -18,10 +18,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/tvGroupName"
+                android:id="@+id/tvNameLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
@@ -33,11 +33,10 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/etGroupName"
+                android:id="@+id/etNameLine"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginTop="@dimen/margin_standard"
                 android:layout_marginEnd="@dimen/margin_standard"
                 android:autofillHints="@string/et_name_line_text"
                 android:ems="10"
@@ -48,26 +47,25 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvGroupName" />
+                app:layout_constraintTop_toBottomOf="@+id/tvNameLine" />
 
             <TextView
-                android:id="@+id/tvSliceName"
+                android:id="@+id/tvXAxis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginTop="@dimen/margin_standard"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/happy_monkey"
                 android:text="@string/tv_x_axis_string"
                 android:textSize="@dimen/tv_ts"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etGroupName" />
+                app:layout_constraintTop_toBottomOf="@+id/etNameLine" />
 
             <EditText
-                android:id="@+id/etSliceName"
+                android:id="@+id/etXAxis"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginTop="@dimen/margin_standard"
                 android:layout_marginEnd="@dimen/margin_standard"
                 android:ems="10"
                 android:enabled="false"
@@ -78,30 +76,29 @@
                 android:inputType="textMultiLine"
                 android:textSize="@dimen/et_ts"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvSliceName" />
+                app:layout_constraintTop_toBottomOf="@+id/tvXAxis" />
 
             <TextView
-                android:id="@+id/tvValueSlice"
+                android:id="@+id/tvYAxis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginTop="@dimen/margin_standard"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
                 android:fontFamily="@font/happy_monkey"
                 android:text="@string/tv_y_axis_string"
                 android:textSize="@dimen/tv_ts"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etSliceName" />
+                app:layout_constraintTop_toBottomOf="@+id/etXAxis" />
 
             <EditText
-                android:id="@+id/etValueSlice"
+                android:id="@+id/etYAxis"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_standard"
-                android:layout_marginTop="@dimen/margin_standard"
                 android:layout_marginEnd="@dimen/margin_standard"
-                android:layout_marginBottom="@dimen/margin_standard"
+                android:layout_marginBottom="16dp"
                 android:autofillHints=""
                 android:ems="10"
                 android:fontFamily="@font/happy_monkey"
@@ -113,17 +110,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvValueSlice" />
+                app:layout_constraintTop_toBottomOf="@+id/tvYAxis" />
 
             <CheckBox
                 android:id="@+id/cbDefaultValues"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="true"
+                android:fontFamily="@font/happy_monkey"
                 android:text="@string/deafult"
                 android:textSize="@dimen/tv_ts"
-                app:layout_constraintEnd_toEndOf="@+id/etSliceName"
-                app:layout_constraintTop_toBottomOf="@+id/etSliceName" />
+                app:layout_constraintEnd_toEndOf="@+id/etXAxis"
+                app:layout_constraintTop_toBottomOf="@+id/etXAxis" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

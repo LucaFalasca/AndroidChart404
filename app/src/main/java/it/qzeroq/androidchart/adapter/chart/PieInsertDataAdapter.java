@@ -72,7 +72,7 @@ public class PieInsertDataAdapter extends RecyclerView.Adapter<PieInsertDataAdap
         //getting slices values and putting them into an array of strings
         String[] values = new String[c];
         for(int i = 0; i < c; i++) {
-            values[i] = holders.get(i).etSliveValue.getText().toString();
+            values[i] = holders.get(i).etSliceValue.getText().toString();
         }
         return values;
     }
@@ -81,16 +81,16 @@ public class PieInsertDataAdapter extends RecyclerView.Adapter<PieInsertDataAdap
     static class Holder extends RecyclerView.ViewHolder {
 
         final TextView tvSliceName, tvSliceValue;
-        final EditText etSliceName, etSliveValue;
+        final EditText etSliceName, etSliceValue;
 
 
         Holder(@NonNull View itemView) {
             super(itemView);
             //attaching views by their id
             tvSliceName = itemView.findViewById(R.id.tvSliceName);
-            tvSliceValue = itemView.findViewById(R.id.tvValueSlice);
+            tvSliceValue = itemView.findViewById(R.id.tvSliceValue);
             etSliceName = itemView.findViewById(R.id.etSliceName);
-            etSliveValue = itemView.findViewById(R.id.etValueSlice);
+            etSliceValue = itemView.findViewById(R.id.etSliceValue);
         }
     }
 }

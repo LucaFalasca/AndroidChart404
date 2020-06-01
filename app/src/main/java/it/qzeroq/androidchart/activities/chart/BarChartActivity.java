@@ -1,5 +1,6 @@
 package it.qzeroq.androidchart.activities.chart;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
