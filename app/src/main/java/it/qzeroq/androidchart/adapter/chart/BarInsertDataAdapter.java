@@ -46,8 +46,10 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
         holders.add(holder);
         holder.etGroupName.setText(holder.etGroupName.getHint() + " " + (position + 1));
         if(position != 0){
-            holder.etXAxis.setEnabled(false);
-            holder.cbDefaultValues.setEnabled(false);
+            holder.etXAxis.setText(holders.get(0).etXAxis.getText());
+            holder.etXAxis.setVisibility(View.GONE);
+            holder.cbDefaultValues.setVisibility(View.GONE);
+            holder.tvXAxis.setVisibility(View.GONE);
         }
     }
 
@@ -129,6 +131,7 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
                 }
                 //setting the self-generated x-values and disabling changes on the EditText etXAxis
                 etXAxis.setText(numbers.toString());
+
                 etXAxis.setEnabled(false);
             }
             else {

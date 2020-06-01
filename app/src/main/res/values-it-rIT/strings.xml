@@ -17,7 +17,7 @@
     <string name="img_description">Immagine schermo iniziale</string>
 
     <string name="x_axis">Es: 1 2 3 …</string>
-    <string name="y_axis">15.3  9.5  7 …</string>
+    <string name="y_axis">Es: 15.3 9.5 7 …</string>
     <string name="function">Funzione</string>
 
     <string name="slice_name">Nome spicchio</string>
