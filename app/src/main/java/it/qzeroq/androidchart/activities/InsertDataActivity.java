@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import it.qzeroq.androidchart.R;
 import it.qzeroq.androidchart.activities.chart.BarChartActivity;
@@ -35,13 +37,17 @@ public class InsertDataActivity extends AppCompatActivity {
         Intent intentData = getIntent();
         idGraph = intentData.getIntExtra("value",6);
 
-        holder = new Holder(idGraph);
+        holder = new Holder(idGraph, this);
     }
 
 
     class Holder implements View.OnClickListener {
 
-        Holder(int id){
+        Context context;
+
+        Holder(int id, Context context){
+            this.context = context;
+
             //attaching the views by their id
             RecyclerView rvInsertLine = findViewById(R.id.rvInsertLine);
             Button btnGenerate = findViewById(R.id.btnGenerate);
@@ -100,30 +106,60 @@ public class InsertDataActivity extends AppCompatActivity {
             //if the button btnGenerate was clicked
             else if (v.getId() == R.id.btnGenerate) {
                 Intent intent = null;
+                boolean b = true;
                 switch (idGraph) {
                     case 0:
-                        intent = new Intent(InsertDataActivity.this, LineChartActivity.class);
-                        intent.putExtra("names", adapter.getNames());
-                        intent.putExtra("xAxises", adapter.getXAxis());
-                        intent.putExtra("yAxises", adapter.getYAxis());
-                        intent.putExtra("n", adapter.getItemCount());
+                        if(check(adapter.getXAxis()) && check(adapter.getYAxis())) {
+                            intent = new Intent(InsertDataActivity.this, LineChartActivity.class);
+                            intent.putExtra("names", adapter.getNames());
+                            intent.putExtra("xAxises", adapter.getXAxis());
+                            intent.putExtra("yAxises", adapter.getYAxis());
+                            intent.putExtra("n", adapter.getItemCount());
+                        }
+                        else{
+                            b = false;
+                        }
                         break;
                     case 1:
-                        intent = new Intent(InsertDataActivity.this, BarChartActivity.class);
-                        intent.putExtra("groups", bAdapter.getNames());
-                        intent.putExtra("xAxises", bAdapter.getXAxis());
-                        intent.putExtra("yAxises", bAdapter.getYAxis());
-                        intent.putExtra("n", bAdapter.getItemCount());
+                        if(check(bAdapter.getYAxis())) {
+                            intent = new Intent(InsertDataActivity.this, BarChartActivity.class);
+                            intent.putExtra("groups", bAdapter.getNames());
+                            intent.putExtra("xAxises", bAdapter.getXAxis());
+                            intent.putExtra("yAxises", bAdapter.getYAxis());
+                            intent.putExtra("n", bAdapter.getItemCount());
+                        }
+                        else
+                        {
+                            b = false;
+                        }
                         break;
                     case 2:
-                        intent = new Intent(InsertDataActivity.this, PieChartActivity.class);
-                        intent.putExtra("names", pAdapter.getNames());
-                        intent.putExtra("values", pAdapter.getvaluesSlice());
-                        intent.putExtra("n", pAdapter.getItemCount());
+                        if(check(pAdapter.getvaluesSlice())){
+                            intent = new Intent(InsertDataActivity.this, PieChartActivity.class);
+                            intent.putExtra("names", pAdapter.getNames());
+                            intent.putExtra("values", pAdapter.getvaluesSlice());
+                            intent.putExtra("n", pAdapter.getItemCount());
+                        }
+                        else{
+                            b = false;
+                        }
                         break;
                 }
-                startActivity(intent);
+                if(b) startActivity(intent);
+                else Toast.makeText(context, context.getResources().getText(R.string.toast_text), Toast.LENGTH_LONG).show();
             }
+        }
+
+        private boolean check(String[] strings) {
+            for(int i = 0; i < strings.length; i++){
+                for(int j = 0; j < strings[i].length(); j++){
+                    String a = strings[i].replace(",", "0").replace(".", "0").replace(" ", "0");
+                    if(!Character.isDigit(a.charAt(i))){
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
     }
 

@@ -35,4 +35,5 @@
     <string name="deafult" translatable="false">Default</string>
     <string name="content_image_chart">ImageChart</string>
     <string name="chart_type_default_string">Chart Type</string>
+    <string name="toast_text">Data not valid</string>
 </resources>
