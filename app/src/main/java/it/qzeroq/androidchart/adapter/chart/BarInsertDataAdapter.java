@@ -44,7 +44,7 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holders.add(holder);
-        holder.etNameLine.setText("Group " + (position + 1));
+        holder.etNameLine.setText(holder.etNameLine.getHint() + " " + (position + 1));
     }
 
 
