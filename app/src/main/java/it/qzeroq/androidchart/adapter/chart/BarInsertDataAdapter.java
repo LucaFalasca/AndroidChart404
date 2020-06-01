@@ -44,7 +44,11 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holders.add(holder);
-        holder.etNameLine.setText(holder.etNameLine.getHint() + " " + (position + 1));
+        holder.etGroupName.setText(holder.etGroupName.getHint() + " " + (position + 1));
+        if(position != 0){
+            holder.etXAxis.setEnabled(false);
+            holder.cbDefaultValues.setEnabled(false);
+        }
     }
 
 
@@ -65,7 +69,7 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
         //getting group names from holders and putting them into an array of strings
         String[] values = new String[c];
         for(int i = 0; i < c; i++){
-            values[i] = holders.get(i).etNameLine.getText().toString();
+            values[i] = holders.get(i).etGroupName.getText().toString();
         }
         return values;
     }
@@ -93,19 +97,19 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
 
     static class Holder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener, TextWatcher {
 
-        final TextView tvNameLine, tvXAxis, tvYAxis;
-        final EditText etNameLine, etXAxis, etYAxis;
+        final TextView tvGroupName, tvXAxis, tvYAxis;
+        final EditText etGroupName, etXAxis, etYAxis;
         CheckBox cbDefaultValues;
 
         Holder(@NonNull View itemView) {
             super(itemView);
             //attaching views by their id
-            tvNameLine = itemView.findViewById(R.id.tvGroupName);
-            tvXAxis = itemView.findViewById(R.id.tvSliceName);
-            tvYAxis = itemView.findViewById(R.id.tvValueSlice);
-            etNameLine = itemView.findViewById(R.id.etGroupName);
-            etXAxis = itemView.findViewById(R.id.etSliceName);
-            etYAxis = itemView.findViewById(R.id.etValueSlice);
+            tvGroupName = itemView.findViewById(R.id.tvGroupName);
+            tvXAxis = itemView.findViewById(R.id.tvYAxis);
+            tvYAxis = itemView.findViewById(R.id.tvYAxis);
+            etGroupName = itemView.findViewById(R.id.etGroupName);
+            etXAxis = itemView.findViewById(R.id.etXAxis);
+            etYAxis = itemView.findViewById(R.id.etYAxis);
             cbDefaultValues = itemView.findViewById(R.id.cbDefaultValues);
 
             //setting of listeners

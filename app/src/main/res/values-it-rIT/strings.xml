@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AndroidChart404</string>
     <string name="tv_LineChart_text">Grafico lineare</string>
     <string name="tv_BarChart_text">Grafico a barre</string>
     <string name="tv_PieChart_text">Grafico a torta</string>
@@ -17,19 +16,19 @@
 
     <string name="img_description">Immagine schermo iniziale</string>
 
-    <string name="x_axis">1 2 3 …</string>
+    <string name="x_axis">Es: 1 2 3 …</string>
     <string name="y_axis">15.3  9.5  7 …</string>
     <string name="function">Funzione</string>
 
     <string name="slice_name">Nome spicchio</string>
     <string name="slice_value">Valore spicchio</string>
     <string name="ex_slice_name">Categoria</string>
-    <string name="ex_slice_value">18</string>
+    <string name="ex_slice_value">Es: 18</string>
     <string name="group_name_string">Nome Gruppo</string>
     <string name="et_group_string">Gruppo</string>
     <string name="generate">Generazione</string>
-    <string name="bar_name">Nome colonna1, Nome colonna2 …</string>
-    <string name="bar_value">22.8  6.3  4.5 …</string>
+    <string name="bar_name">Colonna1 Colonna2 …</string>
+    <string name="bar_value">Es: 22.8 6.3 4.5 …</string>
 
     <string name="content_image_chart">Immagine grafico</string>
     <string name="chart_type_default_string">Tipo grafico</string>
