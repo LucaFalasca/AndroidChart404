@@ -151,7 +151,11 @@ public class InsertDataActivity extends AppCompatActivity {
         }
 
         private boolean check(String[] strings) {
+
             for(int i = 0; i < strings.length; i++){
+                if(strings[i].length() == 0){
+                    return false;
+                }
                 for(int j = 0; j < strings[i].length(); j++){
                     String a = strings[i].replace(",", "0").replace(".", "0").replace(" ", "0");
                     if(!Character.isDigit(a.charAt(i))){
