@@ -54,10 +54,17 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> impl
             holder.ivChart.setImageResource(R.drawable.pie_chart);
         } else if (context.getResources().getString(R.string.tv_BubbleChart_text).equals(name)) {
             holder.ivChart.setImageResource(R.drawable.bubble_chart);
+            holder.ivChart.setEnabled(false);
+            holder.tvChart.setEnabled(false);
         } else if (context.getResources().getString(R.string.tv_ScatterChart_text).equals(name)) {
             holder.ivChart.setImageResource(R.drawable.scatter_chart);
+            holder.ivChart.setEnabled(false);
+            holder.tvChart.setEnabled(false);
         } else if (context.getResources().getString(R.string.tv_CandleStickChart_text).equals(name)) {
             holder.ivChart.setImageResource(R.drawable.candle_stick_chart);
+            holder.ivChart.setEnabled(false);
+            holder.tvChart.setEnabled(false);
+
         }
     }
 
@@ -72,11 +79,18 @@ public class ChartAdapter extends RecyclerView.Adapter<ChartAdapter.Holder> impl
     public void onClick(View v) {
         //creating the intent and putting into it the position of the chart in the RecyclerView
         int position = ((RecyclerView) v.getParent()).getChildAdapterPosition(v);
-        Intent intent = new Intent(context, InsertDataActivity.class);
-        intent.putExtra("value", position);
+        switch (position){
+            case 0:
+            case 1:
+            case 2:
+                Intent intent = new Intent(context, InsertDataActivity.class);
+                intent.putExtra("value", position);
 
-        //starting the activity of the clicked chart with the created intent
-        context.startActivity(intent);
+                //starting the activity of the clicked chart with the created intent
+                context.startActivity(intent);
+                break;
+        }
+
     }
 
 
