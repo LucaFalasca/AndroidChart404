@@ -36,4 +36,8 @@
     <string name="content_image_chart">ImageChart</string>
     <string name="chart_type_default_string">Chart Type</string>
     <string name="toast_text">Data not valid</string>
+
+    <string name="save">Save the chart</string>
+    <string name="toast_no_permission">The application does not have permissions to save the chart</string>
+    <string name="toast_saved">Your chart has been saved. The photo is in the phone gallery</string>
 </resources>

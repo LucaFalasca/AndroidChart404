@@ -33,4 +33,8 @@
     <string name="content_image_chart">Immagine grafico</string>
     <string name="chart_type_default_string">Tipo grafico</string>
     <string name="toast_text">Dati non validi</string>
+
+    <string name="save">Salva il grafico</string>
+    <string name="toast_no_permission">L\'applicazione non ha i permessi necessari per salvare il grafico</string>
+    <string name="toast_saved">Il tuo grafico è stato salvato. La foto si trova nella tua galleria del telefono</string>
 </resources>

@@ -1,9 +1,13 @@
 package it.qzeroq.androidchart.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
@@ -15,12 +19,13 @@ import it.qzeroq.androidchart.adapter.*;
 
 public class SelectionActivity extends AppCompatActivity {
 
+
+    private static final int MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_selection);
-
-        //list of chart names used to fill the RecyclerView
         ArrayList<String> chartNameList = new ArrayList<>();
         chartNameList.add(getResources().getString(R.string.tv_LineChart_text));
         chartNameList.add(getResources().getString(R.string.tv_BarChart_text));

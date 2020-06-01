@@ -1,10 +1,17 @@
 package it.qzeroq.androidchart.activities.chart;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
@@ -139,12 +146,32 @@ public class LineChartActivity extends AppCompatActivity {
     }
 
 
-    class Holder {
+    class Holder implements View.OnClickListener{
         private LineChart lineChart;
-
+        final Button btnSave;
         Holder() {
             //attaching the LineChart by its id
             lineChart = findViewById(R.id.lineChart);
+
+            btnSave = findViewById(R.id.btnSave);
+
+            btnSave.setOnClickListener(this);
+
+            }
+
+
+            @Override
+            public void onClick(View v) {
+                int MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 0;
+                if(ContextCompat.checkSelfPermission(LineChartActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(LineChartActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
+                }
+                else {
+                    lineChart.saveToGallery(getResources().getString(R.string.tv_LineChart_text));
+                    Toast.makeText(LineChartActivity.this, LineChartActivity.this.getResources().getText(R.string.toast_saved), Toast.LENGTH_LONG).show();
+                }
+
+            }
         }
     }
-}
+

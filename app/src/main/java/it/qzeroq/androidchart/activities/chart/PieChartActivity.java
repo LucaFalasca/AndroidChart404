@@ -1,12 +1,21 @@
 package it.qzeroq.androidchart.activities.chart;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
@@ -85,7 +94,7 @@ public class PieChartActivity extends AppCompatActivity {
     }
 
 
-    private void PersonalizeChart(PieChart chart) {
+    private void PersonalizeChart(PieChart chart){
         chart.setHoleColor(getColor(R.color.background));
         chart.setUsePercentValues(true);
 
@@ -97,18 +106,34 @@ public class PieChartActivity extends AppCompatActivity {
         legend.setFormSize(getResources().getDimension(R.dimen.legend));
         legend.setTextSize(getResources().getDimension(R.dimen.legend_text));
         legend.setTextColor(getColor(R.color.colorTextChart));
-
-        //disabling description of the chart
         chart.getDescription().setEnabled(false);
     }
 
 
-    class Holder {
-        private PieChart pieChart;
-
+    class Holder implements View.OnClickListener{
+        final PieChart pieChart;
+        final Button btnSave;
         Holder() {
             //attaching the PieChart by its id
             pieChart = findViewById(R.id.pieChart);
+            btnSave = findViewById(R.id.btnSave);
+
+            btnSave.setOnClickListener(this);
+
+        }
+
+
+        @Override
+        public void onClick(View v) {
+            int MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 0;
+            if(ContextCompat.checkSelfPermission(PieChartActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(PieChartActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
+            }
+            else {
+                pieChart.saveToGallery(getResources().getString(R.string.tv_PieChart_text));
+                Toast.makeText(PieChartActivity.this, PieChartActivity.this.getResources().getText(R.string.toast_saved), Toast.LENGTH_LONG).show();
+            }
+
         }
     }
 }

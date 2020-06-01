@@ -2,10 +2,17 @@ package it.qzeroq.androidchart.activities.chart;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -197,12 +204,30 @@ public class BarChartActivity extends AppCompatActivity {
     }
 
 
-    class Holder {
+    class Holder implements View.OnClickListener {
         private BarChart barChart;
-
+        final Button btnSave;
         Holder() {
-            //attaching the BarChart by its id
+            //attaching the PieChart by its id
             barChart = findViewById(R.id.barChart);
+            btnSave = findViewById(R.id.btnSave);
+
+            btnSave.setOnClickListener(this);
+
+        }
+
+
+        @Override
+        public void onClick(View v) {
+            int MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 0;
+            if(ContextCompat.checkSelfPermission(BarChartActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(BarChartActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE);
+            }
+            else {
+                barChart.saveToGallery(getResources().getString(R.string.tv_BarChart_text));
+                Toast.makeText(BarChartActivity.this, BarChartActivity.this.getResources().getText(R.string.toast_saved), Toast.LENGTH_LONG).show();
+            }
+
         }
     }
 }
