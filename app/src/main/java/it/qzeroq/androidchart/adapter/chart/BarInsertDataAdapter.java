@@ -102,10 +102,10 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
             //attaching views by their id
             tvNameLine = itemView.findViewById(R.id.tvGroupName);
             tvXAxis = itemView.findViewById(R.id.tvSliceName);
-            tvYAxis = itemView.findViewById(R.id.tvValueSlice);
+            tvYAxis = itemView.findViewById(R.id.tvYAxis);
             etNameLine = itemView.findViewById(R.id.etGroupName);
             etXAxis = itemView.findViewById(R.id.etSliceName);
-            etYAxis = itemView.findViewById(R.id.etValueSlice);
+            etYAxis = itemView.findViewById(R.id.etYAxis);
             cbDefaultValues = itemView.findViewById(R.id.cbDefaultValues);
 
             //setting of listeners
