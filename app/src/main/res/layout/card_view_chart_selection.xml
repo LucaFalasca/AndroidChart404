@@ -36,8 +36,8 @@
                 android:layout_height="@dimen/tvChart_h"
                 android:background="@color/colorTextChart"
                 android:backgroundTint="@color/colorTextChart"
-                android:foregroundTint="@color/backcard"
-                android:contentDescription="@string/content_image_chart" />
+                android:contentDescription="@string/content_image_chart"
+                android:foregroundTint="@color/backcard" />
 
             <TextView
                 android:id="@+id/tvChart"

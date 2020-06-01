@@ -14,6 +14,7 @@ import com.github.mikephil.charting.data.PieEntry;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import it.qzeroq.androidchart.R;
 
@@ -38,10 +39,8 @@ public class PieChartActivity extends AppCompatActivity {
         //creation of PieEntry and list of PieEntry
         List<PieEntry> entries = new ArrayList<>();
         for(int i = 0; i < n; i++) {
-            assert values != null;
-            assert values[i] != null;
-            assert names != null;
-            assert names[i] != null;
+            assert Objects.requireNonNull(values)[i] != null;
+            assert Objects.requireNonNull(names)[i] != null;
             entries.add(new PieEntry(Float.parseFloat(values[i]), names[i]));
         }
 
