@@ -133,7 +133,7 @@ public class InsertDataActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
 
         outState.putInt("id", idGraph);
-        outState.putString("etInput", holder.etInput.getText().toString());
+        //outState.putString("etInput", holder.etInput.getText().toString());
 
     }
 }

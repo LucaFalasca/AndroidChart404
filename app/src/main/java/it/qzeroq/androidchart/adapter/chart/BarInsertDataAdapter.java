@@ -107,7 +107,7 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
             super(itemView);
             //attaching views by their id
             tvGroupName = itemView.findViewById(R.id.tvGroupName);
-            tvXAxis = itemView.findViewById(R.id.tvYAxis);
+            tvXAxis = itemView.findViewById(R.id.tvXAxis);
             tvYAxis = itemView.findViewById(R.id.tvYAxis);
             etGroupName = itemView.findViewById(R.id.etGroupName);
             etXAxis = itemView.findViewById(R.id.etXAxis);
