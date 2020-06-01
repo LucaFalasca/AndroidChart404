@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ public class InsertDataActivity extends AppCompatActivity {
     private PieInsertDataAdapter pAdapter;
 
     Holder holder;
+    private Bundle state;
 
 
     @Override
@@ -46,12 +48,14 @@ public class InsertDataActivity extends AppCompatActivity {
     class Holder implements View.OnClickListener {
 
         Context context;
+        RecyclerView rvInsertLine;
+        RecyclerView.LayoutManager layoutManager;
 
         Holder(int id, Context context){
             this.context = context;
 
             //attaching the views by their id
-            RecyclerView rvInsertLine = findViewById(R.id.rvInsertLine);
+            rvInsertLine = findViewById(R.id.rvInsertLine);
             Button btnGenerate = findViewById(R.id.btnGenerate);
             Button btnAddCard = findViewById(R.id.btnAddCard);
 
@@ -60,7 +64,7 @@ public class InsertDataActivity extends AppCompatActivity {
             btnAddCard.setOnClickListener(this);
 
             //setting LinearLayoutManager for the RecyclerView of insertion chart data
-            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(InsertDataActivity.this){
+            layoutManager = new LinearLayoutManager(InsertDataActivity.this){
                 @Override
                 public boolean canScrollVertically() {
                     return false;
@@ -69,6 +73,11 @@ public class InsertDataActivity extends AppCompatActivity {
             rvInsertLine.setLayoutManager(layoutManager);
 
             //setting adapter for the RecyclerView on the basis of the clicked chart
+            setAdapter(id);
+
+        }
+
+        private void setAdapter(int id){
             switch (id) {
                 case 0:
                     adapter = new LineInsertDataAdapter();
@@ -83,9 +92,7 @@ public class InsertDataActivity extends AppCompatActivity {
                     rvInsertLine.setAdapter(pAdapter);
                     break;
             }
-
         }
-
 
         @Override
         public void onClick(View v) {
@@ -136,7 +143,7 @@ public class InsertDataActivity extends AppCompatActivity {
                         }
                         break;
                     case 2:
-                        if(check(pAdapter.getvaluesSlice())){
+                        if(check(pAdapter.getvaluesSlice()) && check2(pAdapter.getvaluesSlice())){
                             intent = new Intent(InsertDataActivity.this, PieChartActivity.class);
                             intent.putExtra("names", pAdapter.getNames());
                             intent.putExtra("values", pAdapter.getvaluesSlice());
@@ -167,15 +174,31 @@ public class InsertDataActivity extends AppCompatActivity {
             }
             return true;
         }
+
+        private boolean check2(String[] strings) {
+            for(int i = 0; i < strings.length; i++){
+                if(strings[i].length() == 0){
+                    return false;
+                }
+                for(int j = 0; j < strings[i].length() - 1; j++){
+                    String a = strings[i];
+                    while(a.startsWith(" ")){
+                        a = a.substring(1);
+                    }
+                    if(!(Character.isDigit(a.charAt(j)) || a.charAt(j) == '.') && Character.isDigit(a.charAt(j + 1))){
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
     }
 
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-
         outState.putInt("id", idGraph);
-
         switch (idGraph) {
             case 0:
                 outState.putInt("numCard", adapter.getItemCount());

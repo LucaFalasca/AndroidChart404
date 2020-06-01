@@ -62,7 +62,6 @@ public class LineInsertDataAdapter extends RecyclerView.Adapter<LineInsertDataAd
         notifyItemInserted(c);
     }
 
-
     public String[] getNames() {
         //getting function names from holders and putting them into an array of strings
         String[] values = new String[c];
@@ -106,6 +105,7 @@ public class LineInsertDataAdapter extends RecyclerView.Adapter<LineInsertDataAd
     public String getYAxis(int i) {
         return holders.get(i).etYAxis.getText().toString();
     }
+
 
 
     public void setLineName(int i, String s) {

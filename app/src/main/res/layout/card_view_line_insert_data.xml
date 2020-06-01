@@ -70,6 +70,7 @@
                 android:layout_marginStart="@dimen/margin_standard"
                 android:layout_marginEnd="@dimen/margin_standard"
                 android:ems="10"
+                android:enabled="false"
                 android:fontFamily="@font/happy_monkey"
                 android:gravity="start|top"
                 android:hint="@string/x_axis"
