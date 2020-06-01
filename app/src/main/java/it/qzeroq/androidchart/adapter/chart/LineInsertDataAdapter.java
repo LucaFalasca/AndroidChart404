@@ -46,7 +46,7 @@ public class LineInsertDataAdapter extends RecyclerView.Adapter<LineInsertDataAd
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holders.add(holder);
-        holder.etNameLine.setText(holder.etNameLine.getHint() + " " + (position + 1));
+        holder.etLineName.setText(holder.etLineName.getHint() + " " + (position + 1));
     }
 
 
@@ -67,7 +67,7 @@ public class LineInsertDataAdapter extends RecyclerView.Adapter<LineInsertDataAd
         //getting function names from holders and putting them into an array of strings
         String[] values = new String[c];
         for(int i = 0; i < c; i++) {
-            values[i] = holders.get(i).etNameLine.getText().toString();
+            values[i] = holders.get(i).etLineName.getText().toString();
         }
         return values;
     }
@@ -92,19 +92,50 @@ public class LineInsertDataAdapter extends RecyclerView.Adapter<LineInsertDataAd
         return values;
     }
 
+
+    public String getLineName(int i) {
+        return holders.get(i).etLineName.getText().toString();
+    }
+
+
+    public String getXAxis(int i) {
+        return holders.get(i).etXAxis.getText().toString();
+    }
+
+
+    public String getYAxis(int i) {
+        return holders.get(i).etYAxis.getText().toString();
+    }
+
+
+    public void setLineName(int i, String s) {
+        holders.get(i).etLineName.setText(s);
+    }
+
+
+    public void setXAxis(int i, String s) {
+        holders.get(i).etXAxis.setText(s);
+    }
+
+
+    public void setYAxis(int i, String s) {
+        holders.get(i).etYAxis.setText(s);
+    }
+
+
     static class Holder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener, TextWatcher {
 
-        final TextView tvNameLine, tvXAxis, tvYAxis;
-        final EditText etNameLine, etXAxis, etYAxis;
+        final TextView tvLineName, tvXAxis, tvYAxis;
+        final EditText etLineName, etXAxis, etYAxis;
         CheckBox cbDefaultValues;
 
         Holder(@NonNull View itemView) {
             super(itemView);
             //attaching views by their id
-            tvNameLine = itemView.findViewById(R.id.tvNameLine);
+            tvLineName = itemView.findViewById(R.id.tvNameLine);
             tvXAxis = itemView.findViewById(R.id.tvXAxis);
             tvYAxis = itemView.findViewById(R.id.tvYAxis);
-            etNameLine = itemView.findViewById(R.id.etNameLine);
+            etLineName = itemView.findViewById(R.id.etNameLine);
             etXAxis = itemView.findViewById(R.id.etXAxis);
             etYAxis = itemView.findViewById(R.id.etYAxis);
             cbDefaultValues = itemView.findViewById(R.id.cbDefaultValues);

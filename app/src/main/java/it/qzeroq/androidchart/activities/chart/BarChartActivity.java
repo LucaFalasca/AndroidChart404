@@ -167,7 +167,7 @@ public class BarChartActivity extends AppCompatActivity {
         chart.getAxisRight().setTextColor(getColor(R.color.colorTextChart));
         chart.getLegend().setTextColor(getColor(R.color.colorTextChart));
 
-        //fitting the bars in order to properlyPAh s show them
+        //fitting the bars in order to properly show them
         chart.setFitBars(true);
 
         //customization of x-axis

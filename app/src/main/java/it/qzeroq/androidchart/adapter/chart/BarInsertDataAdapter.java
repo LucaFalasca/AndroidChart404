@@ -97,6 +97,36 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
     }
 
 
+    public String getGroupName(int i) {
+        return holders.get(i).etGroupName.getText().toString();
+    }
+
+
+    public String getXAxis(int i) {
+        return holders.get(i).etXAxis.getText().toString();
+    }
+
+
+    public String getYAxis(int i) {
+        return holders.get(i).etYAxis.getText().toString();
+    }
+
+
+    public void setGroupName(int i, String s) {
+        holders.get(i).etGroupName.setText(s);
+    }
+
+
+    public void setXAxis(int i, String s) {
+        holders.get(i).etXAxis.setText(s);
+    }
+
+
+    public void setYAxis(int i, String s) {
+        holders.get(i).etYAxis.setText(s);
+    }
+
+
     static class Holder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener, TextWatcher {
 
         final TextView tvGroupName, tvXAxis, tvYAxis;

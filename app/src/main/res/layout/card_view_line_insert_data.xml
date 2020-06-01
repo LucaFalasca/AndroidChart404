@@ -11,7 +11,9 @@
         android:layout_marginStart="@dimen/margin_standard"
         android:layout_marginTop="@dimen/margin_standard"
         android:layout_marginEnd="@dimen/margin_standard"
-        app:cardBackgroundColor="#989797"
+        app:cardCornerRadius="7dp"
+        app:cardElevation="7dp"
+        app:cardBackgroundColor="#AA989797"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -133,7 +134,69 @@ public class InsertDataActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
 
         outState.putInt("id", idGraph);
-        //outState.putString("etInput", holder.etInput.getText().toString());
 
+        switch (idGraph) {
+            case 0:
+                outState.putInt("numCard", adapter.getItemCount());
+                for (int i = 0; i < adapter.getItemCount(); i++) {
+                    outState.putString("lineName", adapter.getLineName(i));
+                    outState.putString("xAxis", adapter.getXAxis(i));
+                    outState.putString("yAxis", adapter.getYAxis(i));
+                }
+                break;
+            case 1:
+                outState.putInt("numCard", bAdapter.getItemCount());
+                for (int i = 0; i < bAdapter.getItemCount(); i++) {
+                    outState.putString("groupName", bAdapter.getGroupName(i));
+                    outState.putString("xAxis", bAdapter.getXAxis(i));
+                    outState.putString("yAxis", bAdapter.getYAxis(i));
+                }
+                break;
+            case 2:
+                outState.putInt("numCard", pAdapter.getItemCount());
+                for (int i = 0; i < pAdapter.getItemCount(); i++) {
+                    outState.putString("sliceName", pAdapter.getSliceName(i));
+                    outState.putString("value", pAdapter.getSliceValue(i));
+                }
+                break;
+        }
+    }
+
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        int id = savedInstanceState.getInt("id");
+        int numCard;
+
+        switch (id) {
+            case 0:
+                numCard = savedInstanceState.getInt("numCard");
+                for (int i = 0; i < numCard; i++) {
+                    adapter.addCard();
+                    adapter.setLineName(i, savedInstanceState.getString("lineName"));
+                    adapter.setXAxis(i, savedInstanceState.getString("xAxis"));
+                    adapter.setYAxis(i, savedInstanceState.getString("yAxis"));
+                }
+                break;
+            case 1:
+                numCard = savedInstanceState.getInt("numCard");
+                for (int i = 0; i < numCard; i++) {
+                    bAdapter.addCard();
+                    bAdapter.setGroupName(i, savedInstanceState.getString("groupName"));
+                    bAdapter.setXAxis(i, savedInstanceState.getString("xAxis"));
+                    bAdapter.setYAxis(i, savedInstanceState.getString("yAxis"));
+                }
+                break;
+            case 2:
+                numCard = savedInstanceState.getInt("numCard");
+                for (int i = 0; i < numCard; i++) {
+                    pAdapter.addCard();
+                    pAdapter.setSliceName(i, savedInstanceState.getString("groupName"));
+                    pAdapter.setSliceValue(i, savedInstanceState.getString("xAxis"));
+                }
+                break;
+        }
     }
 }
