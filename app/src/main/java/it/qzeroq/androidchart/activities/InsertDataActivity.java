@@ -23,8 +23,9 @@ import it.qzeroq.androidchart.adapter.chart.PieInsertDataAdapter;
 public class InsertDataActivity extends AppCompatActivity {
     private int idGraph;
     private LineInsertDataAdapter adapter;
-    private PieInsertDataAdapter pAdapter;
     private BarInsertDataAdapter bAdapter;
+    private PieInsertDataAdapter pAdapter;
+
     Holder holder;
 
 
@@ -158,7 +159,7 @@ public class InsertDataActivity extends AppCompatActivity {
                 }
                 for(int j = 0; j < strings[i].length(); j++){
                     String a = strings[i].replace(",", "0").replace(".", "0").replace(" ", "0");
-                    if(!Character.isDigit(a.charAt(i))){
+                    if(!Character.isDigit(a.charAt(j))){
                         return false;
                     }
                 }
