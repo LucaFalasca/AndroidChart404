@@ -46,7 +46,7 @@ public class LineInsertDataAdapter extends RecyclerView.Adapter<LineInsertDataAd
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holders.add(holder);
-        holder.etNameLine.setText("Function " + (position + 1));
+        holder.etNameLine.setText(holder.etNameLine.getHint() + " " + (position + 1));
     }
 
 

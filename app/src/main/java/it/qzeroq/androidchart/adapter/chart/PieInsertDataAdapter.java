@@ -41,7 +41,7 @@ public class PieInsertDataAdapter extends RecyclerView.Adapter<PieInsertDataAdap
     @Override
     public void onBindViewHolder(@NonNull Holder holder, int position) {
         holders.add(holder);
-        holder.etSliceName.setText("Category " + (position + 1));
+        holder.etSliceName.setText(holder.etSliceName.getHint() + " " + (position + 1));
     }
 
 

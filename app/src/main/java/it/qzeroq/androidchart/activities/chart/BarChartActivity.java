@@ -150,13 +150,13 @@ public class BarChartActivity extends AppCompatActivity {
     }
 
     private void PersonalizeDataChart(BarData barData) {
-        groupSpace = 0.1f;
-        barWidth = 0.35f;
-        barSpace = 0.1f;
+        groupSpace = 0.2f;
+        barWidth = 0.7f / numberOfGroups;
+        barSpace = 0.1f / numberOfGroups;
         barData.setBarWidth(barWidth);
 
         if(numberOfGroups > 1)
-            barData.groupBars(0, groupSpace, barSpace);
+            barData.groupBars(0f, groupSpace, barSpace);
 
     }
 
