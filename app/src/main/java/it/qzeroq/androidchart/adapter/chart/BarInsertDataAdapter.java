@@ -95,7 +95,7 @@ public class BarInsertDataAdapter extends RecyclerView.Adapter<BarInsertDataAdap
         }
         return values;
     }
-    
+
 
 
     static class Holder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener, TextWatcher {

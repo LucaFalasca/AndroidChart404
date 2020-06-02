@@ -1,26 +1,21 @@
 package it.qzeroq.androidchart.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import it.qzeroq.androidchart.R;
-import it.qzeroq.androidchart.adapter.*;
+import it.qzeroq.androidchart.adapter.ChartAdapter;
 
 public class SelectionActivity extends AppCompatActivity {
 
-
-    private static final int MY_PERMISSIONS_WRITE_EXTERNAL_STORAGE = 0;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
