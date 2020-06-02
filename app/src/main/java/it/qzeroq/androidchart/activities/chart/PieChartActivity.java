@@ -20,6 +20,7 @@ import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.PercentFormatter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +62,9 @@ public class PieChartActivity extends AppCompatActivity {
 
 
         PieData data = new PieData(set);
+
+        //Set the percent next to the values
+        data.setValueFormatter(new PercentFormatter(holder.pieChart));
 
         //adding data to the PieChart
         holder.pieChart.setData(data);
@@ -107,6 +111,7 @@ public class PieChartActivity extends AppCompatActivity {
         legend.setTextSize(getResources().getDimension(R.dimen.legend_text));
         legend.setTextColor(getColor(R.color.colorTextChart));
         chart.getDescription().setEnabled(false);
+
     }
 
 
