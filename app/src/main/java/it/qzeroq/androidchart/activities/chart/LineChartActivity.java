@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -145,6 +146,17 @@ public class LineChartActivity extends AppCompatActivity {
         chart.getDescription().setEnabled(false);
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, int[] grantResults)
+    {
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            holder.lineChart.saveToGallery(getResources().getString(R.string.tv_PieChart_text));
+            Toast.makeText(LineChartActivity.this, LineChartActivity.this.getResources().getText(R.string.toast_saved), Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(LineChartActivity.this, LineChartActivity.this.getResources().getText(R.string.toast_no_permission), Toast.LENGTH_LONG).show();
+        }
+    }
 
     class Holder implements View.OnClickListener{
         private LineChart lineChart;

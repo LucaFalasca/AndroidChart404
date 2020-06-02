@@ -203,6 +203,17 @@ public class BarChartActivity extends AppCompatActivity {
         chart.setFitBars(true);
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, int[] grantResults)
+    {
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            holder.barChart.saveToGallery(getResources().getString(R.string.tv_PieChart_text));
+            Toast.makeText(BarChartActivity.this, BarChartActivity.this.getResources().getText(R.string.toast_saved), Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(BarChartActivity.this, BarChartActivity.this.getResources().getText(R.string.toast_no_permission), Toast.LENGTH_LONG).show();
+        }
+    }
 
     class Holder implements View.OnClickListener {
         private BarChart barChart;
