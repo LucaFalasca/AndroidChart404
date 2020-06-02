@@ -27,6 +27,7 @@
         android:id="@+id/pieChart"
         android:layout_width="match_parent"
         android:layout_height="@dimen/zero"
+        android:background="@color/background"
         app:layout_constraintBottom_toTopOf="@+id/btnSave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

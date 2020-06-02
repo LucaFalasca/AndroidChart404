@@ -24,6 +24,7 @@
         android:id="@+id/lineChart"
         android:layout_width="@dimen/zero"
         android:layout_height="@dimen/zero"
+        android:background="@color/background"
         app:layout_constraintBottom_toTopOf="@+id/btnSave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

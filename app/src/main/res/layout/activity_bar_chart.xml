@@ -23,6 +23,7 @@
         android:id="@+id/barChart"
         android:layout_width="@dimen/zero"
         android:layout_height="@dimen/zero"
+        android:background="@color/background"
         app:layout_constraintBottom_toTopOf="@+id/btnSave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
