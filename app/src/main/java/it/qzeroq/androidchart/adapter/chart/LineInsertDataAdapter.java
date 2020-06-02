@@ -92,35 +92,6 @@ public class LineInsertDataAdapter extends RecyclerView.Adapter<LineInsertDataAd
     }
 
 
-    public String getLineName(int i) {
-        return holders.get(i).etLineName.getText().toString();
-    }
-
-
-    public String getXAxis(int i) {
-        return holders.get(i).etXAxis.getText().toString();
-    }
-
-
-    public String getYAxis(int i) {
-        return holders.get(i).etYAxis.getText().toString();
-    }
-
-
-
-    public void setLineName(int i, String s) {
-        holders.get(i).etLineName.setText(s);
-    }
-
-
-    public void setXAxis(int i, String s) {
-        holders.get(i).etXAxis.setText(s);
-    }
-
-
-    public void setYAxis(int i, String s) {
-        holders.get(i).etYAxis.setText(s);
-    }
 
 
     static class Holder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener, TextWatcher {

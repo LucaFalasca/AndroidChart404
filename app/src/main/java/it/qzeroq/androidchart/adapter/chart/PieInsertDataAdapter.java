@@ -78,26 +78,6 @@ public class PieInsertDataAdapter extends RecyclerView.Adapter<PieInsertDataAdap
     }
 
 
-    public String getSliceName(int i) {
-        return holders.get(i).etSliceName.getText().toString();
-    }
-
-
-    public String getSliceValue(int i) {
-        return holders.get(i).etSliceValue.getText().toString();
-    }
-
-
-    public void setSliceName(int i, String s) {
-        holders.get(i).etSliceName.setText(s);
-    }
-
-
-    public void setSliceValue(int i, String s) {
-        holders.get(i).etSliceValue.setText(s);
-    }
-
-
     static class Holder extends RecyclerView.ViewHolder {
 
         final TextView tvSliceName, tvSliceValue;
