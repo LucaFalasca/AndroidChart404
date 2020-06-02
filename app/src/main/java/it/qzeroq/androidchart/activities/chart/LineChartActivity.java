@@ -147,8 +147,7 @@ public class LineChartActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, int[] grantResults)
-    {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, int[] grantResults) {
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             holder.lineChart.saveToGallery(getResources().getString(R.string.tv_PieChart_text));
             Toast.makeText(LineChartActivity.this, LineChartActivity.this.getResources().getText(R.string.toast_saved), Toast.LENGTH_LONG).show();

@@ -203,8 +203,7 @@ public class BarChartActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, int[] grantResults)
-    {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, int[] grantResults) {
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             holder.barChart.saveToGallery(getResources().getString(R.string.tv_PieChart_text));
             Toast.makeText(BarChartActivity.this, BarChartActivity.this.getResources().getText(R.string.toast_saved), Toast.LENGTH_LONG).show();
